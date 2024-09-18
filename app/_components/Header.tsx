@@ -1,27 +1,25 @@
+"use client";
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 import Image from 'next/image';
-import logo from '../public/logo.png';
-import { bebasNeue } from '../styles/fonts';
 
 
 const Header: React.FC = () => {
-  const router = useRouter();
   const isActive: (pathname: string) => boolean = (pathname) =>
-    router.pathname === pathname;
+    usePathname() === pathname;
 
 
   return (
-    <nav>
-      <div className={`flex items-center justify-between drop-shadow-2xl bg-cream w-full py-3 px-5 ${bebasNeue.className}`}>
+    <div>
+      <div className={`flex items-center justify-between drop-shadow-2xl bg-cream w-full py-3 px-5 `}>
         <Link href="/" className={`flex gap-3 items-center`} data-active={isActive("/")}>
           <Image
-              src={logo}
+              src="/logo.png"
               alt="Crowd Coded logo"
               width={100}
-              height={80}          
+              height={80}
             />
             <h1 className="ml-5 text-6xl font-bold text-gray-800 drop-shadow-sharp">Crowd Coded</h1>
             <p className="drop-shadow hidden md:block">Devs for a better future</p>
@@ -31,7 +29,7 @@ const Header: React.FC = () => {
           <Link href="/about" className="text-2xl">About</Link>
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
 
