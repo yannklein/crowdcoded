@@ -12,8 +12,8 @@ const Header: React.FC = () => {
 
 
   return (
-    <div>
-      <div className={`flex items-center justify-between drop-shadow-2xl bg-cream w-full py-3 px-5 `}>
+    <nav>
+      <div className={`flex items-center justify-between drop-shadow-2xl bg-cream w-full py-3 px-5 font-heading`}>
         <Link href="/" className={`flex gap-3 items-center`} data-active={isActive("/")}>
           <Image
               src="/logo.png"
@@ -25,11 +25,11 @@ const Header: React.FC = () => {
             <p className="drop-shadow hidden md:block">Devs for a better future</p>
         </Link>
         <div className="gap-3  hidden sm:flex">
-          <Link href="/create-post" className="text-2xl">Projects</Link>
+          <Link href="/projects" className="text-2xl">Projects</Link>
           <Link href="/about" className="text-2xl">About</Link>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
