@@ -13,6 +13,9 @@ module.exports = {
       cream: '#EFEAEB'
     },
     extend: {
+      fontFamily: {
+        heading: "var(--font-bebas-neue)",
+      },
       dropShadow: {
         sharp: '4px 4px 0px #C3D7D8',
       }
