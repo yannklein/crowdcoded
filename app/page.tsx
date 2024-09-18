@@ -1,19 +1,18 @@
 import React from "react"
-import Post from "@components/Post"
+import Project from "@/app/_components/Project"
 import { getFeed } from "@/utils/getFeed";
 
 
-const Blog = async () => {
+const Landing = async () => {
 
   const feed = await getFeed();
 
   return (
       <div className="page">
-        <h1>Public Feed</h1>
         <main>
-          {feed?.map((post) => (
-            <div key={post.id} className="post">
-              <Post post={post} />
+          {feed?.map((project) => (
+            <div key={project.id} className="project">
+              <Project project={project} />
             </div>
           ))}
         </main>
@@ -21,4 +20,4 @@ const Blog = async () => {
   )
 }
 
-export default Blog
+export default Landing

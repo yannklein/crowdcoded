@@ -33,6 +33,6 @@ button {
 
 @layer components {
   .layout {
-    @apply py-0 px-8;
+    @apply py-0 px-0;
   }
 }
