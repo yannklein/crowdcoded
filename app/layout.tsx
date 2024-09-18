@@ -2,33 +2,16 @@ import "../styles/globals.css";
 import React from "react";
 import type { Metadata } from "next";
 import {
-  Montserrat,
-  Unbounded,
-  VT323,
-  Exo_2,
   Roboto,
+  Bebas_Neue,
 } from "next/font/google";
 
 import Header from "@components/Header";
 
-const exo2 = Exo_2({
+const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
-  variable: "--font-exo-2",
-});
-
-const msdos = VT323({
-  subsets: ["latin"],
-  variable: "--font-ms-dos",
+  variable: "--font-bebas-neue",
   weight: ["400"],
-});
-
-const unbounded = Unbounded({
-  subsets: ["latin"],
-  variable: "--font-unbounded",
-});
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-main-title",
 });
 
 const roboto = Roboto({
@@ -41,7 +24,7 @@ export const metadata: Metadata = {
   title: "CrowdCoded",
   description: "Devs for a better future",
   icons: {
-    icon: "/hedgehog.svg",
+    icon: "/logo.png",
   },
   openGraph: {
     title: "CrowdCoded",
@@ -60,10 +43,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${unbounded.variable} ${montserrat.variable} ${msdos.variable} ${exo2.variable} ${roboto.variable}`}
+        className={`${roboto.variable} ${bebasNeue.variable}`}
       >
-        <div className="layout"></div>
-        {children}
+        <div className="layout">
+          <Header />
+          {children}
+        </div>
       </body>
     </html>
   );

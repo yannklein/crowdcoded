@@ -1,9 +1,9 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import Image from 'next/image';
-// import { bebasNeue } from '../styles/fonts';
 
 
 const Header: React.FC = () => {
@@ -13,7 +13,6 @@ const Header: React.FC = () => {
 
   return (
     <div>
-      <Header />
       <div className={`flex items-center justify-between drop-shadow-2xl bg-cream w-full py-3 px-5 `}>
         <Link href="/" className={`flex gap-3 items-center`} data-active={isActive("/")}>
           <Image
