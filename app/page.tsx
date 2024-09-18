@@ -1,20 +1,17 @@
 import React from "react"
-import Post, { PostProps } from "@components/Post"
+import Post from "@components/Post"
 import { getFeed } from "@/utils/getFeed";
 
 
+const Blog = async () => {
 
-type Props = {
-  feed: PostProps[]
-}
+  const feed = await getFeed();
 
-const Blog: React.FC<Props> = (props) => {
-  const feed = getFeed();
   return (
       <div className="page">
         <h1>Public Feed</h1>
         <main>
-          {props.feed?.map((post) => (
+          {feed?.map((post) => (
             <div key={post.id} className="post">
               <Post post={post} />
             </div>
