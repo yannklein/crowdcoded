@@ -43,12 +43,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.variable} ${bebasNeue.variable}`}
+        className={`${roboto.variable} ${bebasNeue.variable} layout`}
       >
-        <div className="layout">
-          <Header />
-          {children}
-        </div>
+        <Header />
+        {children}
       </body>
     </html>
   );
