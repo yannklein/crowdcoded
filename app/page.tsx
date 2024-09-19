@@ -1,16 +1,16 @@
 import React from "react"
 import Project from "@/app/_components/Project"
-import { getFeed } from "@/utils/getFeed";
+import { getProjects } from "@/utils/getProjects";
 
 
 const Landing = async () => {
 
-  const feed = await getFeed();
+  const projects = await getProjects();
 
   return (
       <div className="page">
         <main>
-          {feed?.map((project) => (
+          {projects?.map((project) => (
             <div key={project.id} className="project">
               <Project project={project} />
             </div>

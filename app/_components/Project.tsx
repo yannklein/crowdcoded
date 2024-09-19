@@ -8,7 +8,6 @@ export type ProjectProps = {
   owners: string[];
   status: string;
   goal: number;
-  bid: number;
   impacts: string[];
 };
 
