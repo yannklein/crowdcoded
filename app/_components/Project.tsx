@@ -5,7 +5,7 @@ export type ProjectProps = {
   id: string;
   title: string;
   description: string;
-  owners: string[];
+  owners: string;
   status: string;
   goal: number;
   impacts: string[];
