@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { getImpactIcon } from '@/utils/getImpactIcon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DonationProgress from './DonationProgress';
+import { getDonationsPerProject } from '@/utils/getDonationsPerProject';
 
 export type ProjectProps = {
   id: string;
@@ -16,10 +17,15 @@ export type ProjectProps = {
   impacts: string[];
 };
 
-const Project: React.FC<{ project: ProjectProps }> = ({ project }) => {
+const Project = async ({ project }) => {
   const { id, title, owners, description } = project;
   const impactLogos = project.impacts.map((impact) => getImpactIcon(impact));
-  const progressPct = 20;
+  const { count, amount } = await getDonationsPerProject(id);
+  
+  const progressPct = Math.round((amount / project.goal) * 100);
+  console.log(progressPct);
+  
+
   return (
     <div className="bg-cream drop-shadow-2xl rounded-md">
       <Link href={`/projects/${id}`}>
@@ -70,9 +76,9 @@ const Project: React.FC<{ project: ProjectProps }> = ({ project }) => {
           </div>
           <div className="pb-8">
             <div className="flex justify-between font-heading">
-              <h3 className="text-2xl">X donators so far</h3>
+              <h3 className="text-2xl">{count} donators so far</h3>
               <p className="text-md text-coralBlue">
-                ¥XX OUT OF ¥{project.goal}
+                ¥{amount} OUT OF ¥{project.goal}
               </p>
             </div>
             <DonationProgress progress={progressPct} />
