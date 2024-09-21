@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-cream font-heading shadow-[0_-35px_60px_-15px_rgba(0,0,0,0.3)] h-28 flex">
+    <footer className="bg-cream font-heading drop-shadow-top h-28 flex">
       <div className="container mx-auto px-4 py-6 flex justify-between items-center">
         <div className="flex space-x-6">
           <Link href="#" className="text-black font-bold">PROJECTS</Link>
