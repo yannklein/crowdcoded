@@ -10,7 +10,7 @@ const Project = async () => {
   return (
     <div>
       <h2>{title}</h2>
-      <p>By {owners.join(", ")}</p>
+      <p>By {owners}</p>
       <p>{description}</p>
     </div>
   )
