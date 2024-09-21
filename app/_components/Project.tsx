@@ -16,7 +16,7 @@ const Project: React.FC<{ project: ProjectProps }> = ({ project }) => {
   return (
     <Link href={`/projects/${id}`}>
       <h2>{title}</h2>
-      <small>By {owners.join(", ")}</small>
+      <small>By {owners}</small>
       <p>{description}</p>
     </Link>
   );
