@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 
 import Header from "@components/Header";
+import { Footer } from "@components/Footer";
 
 const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
@@ -47,6 +48,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
