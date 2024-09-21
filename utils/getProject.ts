@@ -5,7 +5,7 @@ export const getProject = async () => {
     title: "Project 1",
     description: "[Prisma](https://github.com/prisma/prisma) and Next.js go _great_ together!",
     published: false,
-    owners: ["Sho", "Shoko"],
+    owners: "Shoko and Sho Nakano",
     status: "open",
     goal: 100000,
     bid: 34000,
