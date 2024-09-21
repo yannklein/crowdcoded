@@ -7,7 +7,6 @@ import {
   Bebas_Neue,
 } from "next/font/google";
 
-import Header from "@components/Header";
 import { Footer } from "@components/Footer";
 
 const bebasNeue = Bebas_Neue({
@@ -47,7 +46,6 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${bebasNeue.variable} layout`}
       >
-        <Header />
         {children}
         <Footer />
       </body>
