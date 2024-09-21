@@ -10,7 +10,10 @@ module.exports = {
   ],
   theme: {
     colors: {
-      cream: '#EFEAEB'
+      cream: '#EFEAEB',
+      'coralBlue': '#55A9BB',
+      'white': '#FFFFFF',
+      'lightBlue': '#EDF9FF'
     },
     extend: {
       fontFamily: {
