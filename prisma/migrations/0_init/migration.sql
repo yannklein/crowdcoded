@@ -1,11 +1,11 @@
 -- CreateEnum
-CREATE TYPE "Impact" AS ENUM ('NO_POVERTY', 'ZERO_HUNGER', 'GOOD_HEALTH_AND_WELL_BEING', 'QUALITY_EDUCATION', 'GENDER_EQUALITY', 'CLEAN_WATER_AND_SANITATION', 'AFFORDABLE_AND_CLEAN_ENERGY', 'DECENT_WORK_AND_ECONOMIC_GROWTH', 'INDUSTRY_INNOVATION_AND_INFRASTRUCTURE', 'REDUCED_INEQUALITIES', 'SUSTAINABLE_CITIES_AND_COMMUNITIES', 'RESPONSIBLE_CONSUMPTION_AND_PRODUCTION', 'CLIMATE_ACTION', 'LIFE_BELOW_WATER', 'LIFE_ON_LAND', 'PEACE_JUSTICE_AND_STRONG_INSTITUTIONS', 'PARTNERSHIPS_FOR_THE_GOALS');
+CREATE TYPE "Impact" AS ENUM ('ORGANIC', 'ZERO_WASTE', 'SUSTAINABLE');
 
 -- CreateEnum
 CREATE TYPE "Status" AS ENUM ('ON_GOING', 'ACHIEVED', 'CLOSED');
 
 -- CreateTable
-CREATE TABLE "donations" (
+CREATE TABLE "projects" (
     "id" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
@@ -16,11 +16,11 @@ CREATE TABLE "donations" (
     "owners" TEXT[],
     "impacts" "Impact"[],
 
-    CONSTRAINT "donations_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "projects_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "Donation" (
+CREATE TABLE "donations" (
     "id" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
@@ -29,12 +29,12 @@ CREATE TABLE "Donation" (
     "amount" INTEGER NOT NULL,
     "projectId" TEXT NOT NULL,
 
-    CONSTRAINT "Donation_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "donations_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Donation_email_key" ON "Donation"("email");
+CREATE UNIQUE INDEX "donations_email_key" ON "donations"("email");
 
 -- AddForeignKey
-ALTER TABLE "Donation" ADD CONSTRAINT "Donation_projectId_fkey" FOREIGN KEY ("projectId") REFERENCES "donations"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "donations" ADD CONSTRAINT "donations_projectId_fkey" FOREIGN KEY ("projectId") REFERENCES "projects"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
