@@ -1,6 +1,5 @@
 import React from 'react';
 import { getProjects } from '@/utils/getProjects';
-import Project from '@/app/_components/Project';
 import FeaturedProject from './_components/FeaturedProject';
 
 const Landing = async () => {
