@@ -27,7 +27,7 @@ const Project = async ({ project }) => {
   
 
   return (
-    <div className="bg-cream drop-shadow-2xl rounded-md">
+    <div className="bg-cream shadow-[0_0_24px_0_rgba(0,0,0,0.3)] rounded-md">
       <Link href={`/projects/${id}`}>
         <div className="sm:flex sm:flex-row-reverse">
           <div className="flex flex-col justify-between p-8 sm:pb-0">
@@ -35,7 +35,7 @@ const Project = async ({ project }) => {
               <h2 className="text-4xl">{title}</h2>
               <small>{owners}</small>
             </div>
-            <div className="flex gap-2 md:gap-8 py-3">
+            <div className="flex gap-3 md:gap-8 py-4">
               {impactLogos.map((impactLogo) => (
                 <div
                   className="text-center flex flex-col"
@@ -58,7 +58,7 @@ const Project = async ({ project }) => {
             <p className="text-justify">{description}</p>
           </div>
           <img
-            className="min-w-full sm:min-w-[260px] lg:min-w-[360px] h-[300px] object-cover object-[50%_20%] sm:rounded-ss-md"
+            className="min-w-full sm:min-w-[260px] md:min-w-[180px] lg:min-w-[300px] xl:min-w-[360px] h-[300px] object-cover object-[50%_20%] sm:rounded-ss-md"
             src="https://sho-farm.sunnyday.jp/wp-content/uploads/2023/04/%E3%83%9F%E3%83%8B%E3%82%B5%E3%82%A4%E3%82%BA.jpg"
             alt=""
           />
