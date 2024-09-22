@@ -1,13 +1,19 @@
 import React from "react";
-import Link from "next/link";
+import { cn } from "@/lib/twMerge";
 
 const DonationProgress: React.FC<{ progress: number }> = ({ progress }) => {
-  const classComputed = 
-    "before:rounded before:!content-['" + progress + "%'] before:flex before:justify-center before:items-center before:z-1 before:position-absolute before:top-0 before:left-0 before:bg-coralBlue before:text-white before:h-full before:w-[" + progress + "%] position-relative rounded text-center font-heading bg-white w-full h-8";
+  const classComputed =
+    "relative rounded text-center font-heading text-xl bg-white w-full h-8";
+
   return (
-    <>
-    <div className={classComputed}></div>
-    </>
+      <div className={cn(classComputed)}>
+        <div
+          className="absolute top-0 left-0 flex justify-center items-center h-full bg-coralBlue text-white rounded"
+          style={{ width: `${progress}%` }}
+        >
+          {progress}%
+        </div>
+      </div>
   );
 };
 
