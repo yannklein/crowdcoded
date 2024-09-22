@@ -21,23 +21,26 @@ const Project = async ({ project }) => {
   const { id, title, owners, description } = project;
   const impactLogos = project.impacts.map((impact) => getImpactIcon(impact));
   const { count, amount } = await getDonationsPerProject(id);
-  
+
   const progressPct = Math.round((amount / project.goal) * 100);
   console.log(progressPct);
-  
+
 
   return (
     <div className="bg-cream drop-shadow-2xl rounded-md">
-      <Link href={`/projects/${id}`}>
+
         <div className="sm:flex sm:flex-row-reverse">
           <div className="flex flex-col justify-between p-8 sm:pb-0">
             <div className="font-heading">
-              <h2 className="text-4xl">{title}</h2>
-              <small>{owners}</small>
+              <Link href={`/projects/${id}`}>
+                <h2 className="text-4xl">{title}</h2>
+                <small>{owners}</small>
+              </Link>
             </div>
             <div className="flex gap-2 md:gap-8 py-3">
               {impactLogos.map((impactLogo) => (
                 <div
+                  key={impactLogo.text}
                   className="text-center flex flex-col"
                   style={{ color: impactLogo.color }}
                 >
@@ -98,7 +101,6 @@ const Project = async ({ project }) => {
             </Link>
           </div>
         </div>
-      </Link>
     </div>
   );
 };
