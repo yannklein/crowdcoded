@@ -1,19 +1,21 @@
-import React from "react"
-import { ProjectProps } from "@/app/_components/Project"
-import { getProject } from "@/utils/getProject"
+import React from 'react';
+import { getProject } from '@/utils/getProject';
+import { ProjectProps } from '@/app/types/Props';
+import FundingCard from '@/app/_components/FundingCard';
 
-
-const Project = async () => {
-
-  const project: ProjectProps = await getProject()
-  const {title, description, owners} = project;
+const Project = async ({ params }: { params: { id: string } }) => {
+  const project: ProjectProps = await getProject(params.id);
+  const { title, description, owners } = project;
   return (
-    <div>
-      <h2>{title}</h2>
-      <p>By {owners}</p>
-      <p>{description}</p>
+    <div className="flex">
+      <div className='flex-grow'>
+        <h2>{title}</h2>
+        <p>{owners}</p>
+        <p>{description}</p>
+      </div>
+      <FundingCard project={project} />
     </div>
-  )
-}
+  );
+};
 
-export default Project
+export default Project;
