@@ -12,8 +12,8 @@ const DonationProgress: React.FC<{ project: ProjectProps }> = async ({ project }
 
   return (
     <div className="pb-8">
-    <div className="flex justify-between font-heading">
-      <h3 className="text-2xl">{count} donators so far</h3>
+    <div className="flex justify-between font-heading items-center">
+      <h3 className="text-2xl">{count} sponsors so far</h3>
       <p className="text-md text-coralBlue">
         ¥{amount} OUT OF ¥{project.goal}
       </p>
@@ -21,7 +21,7 @@ const DonationProgress: React.FC<{ project: ProjectProps }> = async ({ project }
     <div className={cn(classComputed)}>
         <div
           className="absolute top-0 left-0 flex justify-center items-center h-full bg-coralBlue text-white rounded"
-          style={{ width: `${progressPct}%` }}
+          style={{ width: `${progressPct < 10 ? 10 : progressPct}%` }}
         >
           {progressPct}%
         </div>
