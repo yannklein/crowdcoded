@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { getImpactIcon } from '@/utils/getImpactIcon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DonationProgress from './DonationProgress';
+import ImpactIcon from './ImpactIcon';
 
 export type ProjectProps = {
   id: string;
@@ -18,7 +19,7 @@ export type ProjectProps = {
 
 const Project = async ({ project }) => {
   const { id, title, owners, description } = project;
-  const impactLogos = project.impacts.map((impact) => getImpactIcon(impact));
+  const impacts = project.impacts.map((impact: string) => getImpactIcon(impact));
 
   return (
     <div className="bg-cream shadow-[0_0_24px_0_rgba(0,0,0,0.3)] rounded-md">
@@ -31,25 +32,7 @@ const Project = async ({ project }) => {
             </Link>
           </div>
           <div className="flex gap-3 md:gap-8 py-4">
-            {impactLogos.map((impactLogo) => (
-              <div
-                key={impactLogo.text}
-                className="text-center flex flex-col"
-                style={{ color: impactLogo.color }}
-              >
-                <FontAwesomeIcon
-                  className=" lg:!hidden"
-                  icon={impactLogo.icon}
-                  size="2x"
-                />
-                <FontAwesomeIcon
-                  className="!hidden lg:!block"
-                  icon={impactLogo.icon}
-                  size="3x"
-                />
-                <small>{impactLogo.text}</small>
-              </div>
-            ))}
+            {impacts.map( impact => <ImpactIcon impact={impact} /> )}
           </div>
           <p className="text-justify">{description}</p>
         </div>
