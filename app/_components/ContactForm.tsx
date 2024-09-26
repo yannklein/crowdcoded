@@ -1,8 +1,16 @@
 "use client";
+import React, { useEffect, useRef } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 
 const ContactForm: React.FC = () => {
   const [state, handleSubmit] = useForm("mldrqeov");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (state.succeeded) {
+      formRef.current?.reset();
+    }
+  }, [state.succeeded, state.submitting, formRef]);
 
   return (
     <section className="bg-lightBlue py-20 text-center">
@@ -10,6 +18,7 @@ const ContactForm: React.FC = () => {
         A Question? Contact Us
       </h2>
       <form
+        ref={formRef}
         onSubmit={handleSubmit}
         className="px-4 md:px-0 max-w-2xl mx-auto space-y-4 flex flex-col"
       >
@@ -20,6 +29,7 @@ const ContactForm: React.FC = () => {
             name="name"
             placeholder="Adriana Ito"
             className="w-full md:w-1/2 p-3 rounded focus:outline-none focus:ring-2 focus:ring-coralBlue"
+            required
           />
           <input
             id="email"
@@ -27,6 +37,7 @@ const ContactForm: React.FC = () => {
             name="email"
             placeholder="adriana@crowdcoded.org"
             className="w-full md:w-1/2 p-3 rounded focus:outline-none focus:ring-2 focus:ring-coralBlue"
+            required
           />
         </div>
         <ValidationError prefix="Email" field="email" errors={state.errors} />
@@ -35,13 +46,13 @@ const ContactForm: React.FC = () => {
           name="message"
           placeholder="Your message..."
           className="w-full p-3 h-40 rounded focus:outline-none focus:ring-2 focus:ring-coralBlue"
+          required
         />
         <ValidationError
           prefix="Message"
           field="message"
           errors={state.errors}
         />
-
         <button
           type="submit"
           disabled={state.submitting}
