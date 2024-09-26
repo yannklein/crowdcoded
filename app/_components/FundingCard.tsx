@@ -6,7 +6,7 @@ import FundingAmountSelector from './FundingAmountSelector';
 
 const FundingCard: React.FC<{ project: ProjectProps }> = ({ project }) => {
   return (
-    <div className="m-8 p-8 w-[400px] sticky top-8 bg-cream rounded-md shadow-[0_0_24px_0_rgba(0,0,0,0.3)]">
+    <div className="p-8 min-w-[400px] h-fit sticky top-8 bg-cream rounded-md shadow-[0_0_24px_0_rgba(0,0,0,0.3)]">
       <h2 className="text-3xl mb-4 text-center">Crowd Coded Mission</h2>
       <img
         className="w-full h-[160px] object-contain bg-white rounded mb-4"
