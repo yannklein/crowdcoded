@@ -1,8 +1,7 @@
 import React from "react";
 import { cn } from "@/lib/twMerge";
 import { getDonationsPerProject } from "@/utils/getDonationsPerProject";
-import { ProjectProps } from "./FeaturedProject";
-
+import { ProjectProps } from "@/app/types/Props";
 
 const DonationProgress: React.FC<{ project: ProjectProps }> = async ({ project }) => {
   const { count, amount } = await getDonationsPerProject(project.id);

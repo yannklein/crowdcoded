@@ -6,4 +6,14 @@ type ImpactProps = {
   color: string
 }
 
-export { ImpactProps };
+type ProjectProps = {
+  id: string;
+  title: string;
+  description: string;
+  owners: string;
+  status: string;
+  goal: number;
+  impacts: string[];
+};
+
+export type { ImpactProps, ProjectProps };

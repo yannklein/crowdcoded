@@ -1,15 +1,6 @@
 import React from "react";
 import Link from "next/link";
-
-export type ProjectProps = {
-  id: string;
-  title: string;
-  description: string;
-  owners: string;
-  status: string;
-  goal: number;
-  impacts: string[];
-};
+import { ProjectProps } from "@/app/types/Props";
 
 const Project: React.FC<{ project: ProjectProps }> = ({ project }) => {
   const {id, title, owners, description} = project;

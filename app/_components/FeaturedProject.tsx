@@ -5,17 +5,8 @@ import { getImpactIcon } from '@/utils/getImpactIcon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DonationProgress from './DonationProgress';
 import ImpactIcon from './ImpactIcon';
+import { ProjectProps } from "@/app/types/Props";
 
-export type ProjectProps = {
-  id: string;
-  title: string;
-  description: string;
-  owners: string;
-  status: string;
-  goal: number;
-  mission: string;
-  impacts: string[];
-};
 
 const Project = async ({ project }) => {
   const { id, title, owners, description } = project;
