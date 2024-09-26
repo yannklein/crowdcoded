@@ -13,6 +13,7 @@ type ProjectProps = {
   owners: string;
   status: string;
   goal: number;
+  mission: string;
   impacts: string[];
 };
 
