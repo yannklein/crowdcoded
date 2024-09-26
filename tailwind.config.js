@@ -22,7 +22,10 @@ module.exports = {
       dropShadow: {
         sharp: '4px 4px 0px #C3D7D8',
         top: '0 -25px 25px rgba(0, 0, 0, 0.15)'
-      }
+      },
+      boxShadow: {
+        default: '0 0 24px 0 rgba(0,0,0,0.3)',
+      },
     },
   },
   plugins: [],
