@@ -4,6 +4,7 @@ import FeaturedProject from "./_components/FeaturedProject";
 import LandingBanner from "@components/LandingBanner";
 import HowItWorks from "@components/HowItWorks";
 import ImpactfulBusinesses from "@components/ImpactfulBusiness";
+import ContactForm from "@components/ContactForm";
 
 const Landing = async () => {
   const projects = await getProjects();
@@ -24,6 +25,7 @@ const Landing = async () => {
         </div>
         <HowItWorks />
         <ImpactfulBusinesses />
+        <ContactForm />
       </main>
     </div>
   );
