@@ -2,6 +2,7 @@ import React from 'react';
 import { getProjects } from '@/utils/getProjects';
 import FeaturedProject from './_components/FeaturedProject';
 import LandingBanner from "@components/LandingBanner";
+import HowItWorks from '@components/HowItWorks';
 
 const Landing = async () => {
   const projects = await getProjects();
@@ -20,6 +21,7 @@ const Landing = async () => {
               </div>
             </div>
           </div>
+          <HowItWorks />
         </main>
       </div>
   );
