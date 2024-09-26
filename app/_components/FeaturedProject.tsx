@@ -1,10 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { getImpactIcon } from '@/utils/getImpactIcon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DonationProgress from './DonationProgress';
-import { getDonationsPerProject } from '@/utils/getDonationsPerProject';
 
 export type ProjectProps = {
   id: string;
@@ -20,11 +19,6 @@ export type ProjectProps = {
 const Project = async ({ project }) => {
   const { id, title, owners, description } = project;
   const impactLogos = project.impacts.map((impact) => getImpactIcon(impact));
-  const { count, amount } = await getDonationsPerProject(id);
-
-  const progressPct = Math.round((amount / project.goal) * 100);
-  console.log(progressPct);
-
 
   return (
     <div className="bg-cream shadow-[0_0_24px_0_rgba(0,0,0,0.3)] rounded-md">
@@ -76,15 +70,7 @@ const Project = async ({ project }) => {
           <h3 className="font-heading text-2xl">Crowd Coded Mission</h3>
           <p className="text-justify">{project.mission}</p>
         </div>
-        <div className="pb-8">
-          <div className="flex justify-between font-heading">
-            <h3 className="text-2xl">{count} donators so far</h3>
-            <p className="text-md text-coralBlue">
-              ¥{amount} OUT OF ¥{project.goal}
-            </p>
-          </div>
-          <DonationProgress progress={progressPct} />
-        </div>
+        <DonationProgress project={project} />
         <div className="flex justify-end gap-8">
           <Link
             className="text-coralBlue bg-white px-1 rounded font-heading border-2 border-coralBlue text-3xl"
