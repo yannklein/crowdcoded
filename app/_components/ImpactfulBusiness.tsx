@@ -14,7 +14,7 @@ const categories = [
 const ImpactfulBusinesses: React.FC = () => {
   const logos = categories.map((category) => getImpactIcon(category));
   return (
-    <section className="pt-4 md:pt-28 pb-8 text-center">
+    <section className="pt-12 md:pt-28 pb-8 text-center">
       <h2 className="text-4xl md:text-5xl font-heading mb-4">
         We Focus on Impactful Businesses
       </h2>
