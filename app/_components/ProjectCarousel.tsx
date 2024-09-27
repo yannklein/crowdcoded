@@ -19,7 +19,7 @@ const ProjectCarousel = ({slides}) => {
 
   return (
     <Swiper
-      className="h-[400px] bg-[#000000] text-white rounded-md shadow-md"
+      className=" bg-[#000000] text-white rounded-md shadow-md"
       pagination={pagination}
       modules={[Pagination]}
       slidesPerView={1}
@@ -27,8 +27,8 @@ const ProjectCarousel = ({slides}) => {
       {slides.map((slide, index) => (
         <SwiperSlide>
           <div className="flex" style={{flexDirection: index % 2 === 0 ? 'row' : 'row-reverse'}}>
-            <p className='w-1/2 p-8 flex items-center' >{slide.text}</p>
-            <img className='w-1/2 h-[400px] object-cover' src={slide.image} alt="" />
+            <p className='w-1/2 p-10 flex items-center' >{slide.text}</p>
+            <img className='w-1/2 h-[400px] object-cover p-10' src={slide.image} alt="" />
           </div>
         </SwiperSlide>
       ))}
