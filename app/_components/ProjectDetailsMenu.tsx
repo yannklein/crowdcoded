@@ -3,7 +3,7 @@ import React from 'react';
 
 const ProjectDetailsMenu = () => {
   return (
-    <div className="my-16 flex gap-8 border-b-2 pb-2 font-heading text-2xl justify-around text-center">
+    <div className="hidden lg:flex my-16 gap-8 border-b-2 pb-2 font-heading text-2xl lg:text-2xl justify-around text-center">
       <Link href="#who-they-are">Who they are</Link>
       <Link href="#how-we-met-them">How we met them</Link>
       <Link href="#our-mission">Our Mission</Link>

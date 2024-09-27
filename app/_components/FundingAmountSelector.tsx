@@ -16,9 +16,9 @@ const FundingAmountSelector = () => {
         <AmountRadioButton amount={3000} selectedAmount={selectedAmount} setSelectedAmount={setSelectedAmount} />
         <AmountRadioButton amount={5000} selectedAmount={selectedAmount} setSelectedAmount={setSelectedAmount} />
         <AmountRadioButton amount={10000} selectedAmount={selectedAmount} setSelectedAmount={setSelectedAmount} />
-        <div className=" flex px-1 rounded font-heading border-2 border-coralBlue text-3xl bg-white">
+        <div className=" flex px-1 rounded font-heading border-2 border-coralBlue text-xl lg:text-3xl bg-white">
           <span className='px-1'>¥</span>
-          <input type="number" step="1000" min="0" className='w-full focus:outline-none text-3xl' onInput={handleChange} onFocus={handleChange}/>
+          <input type="number" step="1000" min="0" className='w-full focus:outline-none text-xl lg:text-3xl' onInput={handleChange} onFocus={handleChange}/>
         </div>
       </div>
       <PrimaryButton width="100%" href={'/'}>

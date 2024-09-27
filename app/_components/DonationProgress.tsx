@@ -11,10 +11,10 @@ const DonationProgress: React.FC<{ project: ProjectProps }> = async ({ project }
     "relative rounded text-center font-heading text-xl bg-white w-full h-8";
 
   return (
-    <div className="pb-8">
+    <div className="pb-2 lg:*:pb-8">
     <div className="flex justify-between font-heading items-center">
-      <h3 className="text-2xl">{count} sponsors so far</h3>
-      <p className="text-md text-coralBlue">
+      <h3 className="text-xl lg:text-2xl">{count} sponsors so far</h3>
+      <p className="text-sm lg:text-md text-coralBlue">
         ¥{amount} OUT OF ¥{project.goal}
       </p>
     </div>
