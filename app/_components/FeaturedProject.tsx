@@ -31,15 +31,9 @@ const Project: React.FC<{ project: ProjectProps }> = async ({ project }) => {
         </div>
         <img
           className="min-w-full sm:min-w-[260px] md:min-w-[180px] lg:min-w-[300px] xl:min-w-[360px] h-[300px] object-cover object-[50%_20%] sm:rounded-ss-md"
-          src="https://sho-farm.sunnyday.jp/wp-content/uploads/2023/04/%E3%83%9F%E3%83%8B%E3%82%B5%E3%82%A4%E3%82%BA.jpg"
+          src="https://res.cloudinary.com/yanninthesky/image/upload/v1727435190/crowdcoded/E3_83_9F_E3_83_8B_E3_82_B5_E3_82_A4_E3_82_BA_healyc.jpg"
           alt=""
         />
-        {/* <Image
-            src="https://sho-farm.sunnyday.jp/wp-content/uploads/2014/10/1415165056949.jpg"
-            alt={title}
-            width={100}
-            height={80}
-          /> */}
       </div>
       <div className="p-8">
         <div className="pb-8">
@@ -48,7 +42,7 @@ const Project: React.FC<{ project: ProjectProps }> = async ({ project }) => {
         </div>
         <DonationProgress project={project} />
         <div className="flex justify-end gap-8">
-          <SecondaryButton href={`/`}>Learn more</SecondaryButton>
+          <SecondaryButton href={`/projects/${id}`}>Learn more</SecondaryButton>
           <PrimaryButton href={`/`}>Donate</PrimaryButton>
         </div>
       </div>

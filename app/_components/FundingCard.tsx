@@ -10,7 +10,7 @@ const FundingCard: React.FC<{ project: ProjectProps }> = ({ project }) => {
       <h2 className="text-3xl mb-4 text-center">Crowd Coded Mission</h2>
       <img
         className="w-full h-[160px] object-contain bg-white rounded mb-4"
-        src="http://sho-farm.sunnyday.jp/wp-content/uploads/2014/11/c954eb76d6df499ab5e20975de7bb371.jpg"
+        src="https://res.cloudinary.com/yanninthesky/image/upload/v1727435191/crowdcoded/c954eb76d6df499ab5e20975de7bb371_txdaod.jpg"
         alt="website thumbnail"
       />
       <Markdown className='mb-4'>
