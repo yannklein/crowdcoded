@@ -7,7 +7,7 @@ const ProjectMilestone = ({date, description, title, done}) => {
   }
   return (
     <div className='flex items-center gap-4 mb-8'>
-      <div style={dynamicStyle} className="w-16 h-16 flex justify-center items-center rounded-full text-white text-4xl border-2">{done ? "✓" : ""}</div>
+      <div style={dynamicStyle} className="min-w-16 min-h-16 flex justify-center items-center rounded-full text-white text-4xl border-2">{done ? "✓" : ""}</div>
       <div>
         <h3 className='text-2xl'>{date}: {title}</h3>
         <p>{description}</p>

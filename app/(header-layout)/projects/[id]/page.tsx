@@ -45,7 +45,7 @@ const Project = async ({ params }: { params: { id: string } }) => {
     }
   ]
   return (
-    <div className="flex p-8 gap-8">
+    <div className="flex p-8 gap-8 flex-col-reverse lg:flex-row">
       <div className="flex-grow min-w-0">
         <div className="flex gap-8">
           <img
@@ -173,7 +173,7 @@ const Project = async ({ params }: { params: { id: string } }) => {
           <h2 className="text-3xl mb-4" id="links">
             Links
           </h2>
-          <div className="flex gap-8 ">
+          <div className="flex gap-8">
             <Link target="_blank" href="http://sho-farm.sunnyday.jp">
               <ImpactIcon
                 impact={{ text: 'Website', icon: faLaptop, color: 'black' }}
