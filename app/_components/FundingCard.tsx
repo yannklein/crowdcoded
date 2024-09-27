@@ -20,8 +20,8 @@ const FundingCard: React.FC<{ project: ProjectProps }> = ({ project }) => {
           that will help them better sell their produce.
         </Markdown>
       </div>
-      <DonationProgress project={project} />
-      <h3 className="text-xl lg:text-2xl text-center lg:mb-2">Be part of the patrons team</h3>
+        <DonationProgress project={project} />
+      <h3 className="hidden lg:block text-xl lg:text-2xl text-center lg:mb-2">Be part of the patrons team</h3>
       <FundingAmountSelector />
     </div>
   );

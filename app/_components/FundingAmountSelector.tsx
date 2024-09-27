@@ -12,7 +12,7 @@ const FundingAmountSelector = () => {
   };
   return (
     <div>
-      <div className="grid grid-cols-2 gap-1 mb-3">
+      <div className="hidden lg:grid grid-cols-2 gap-1 mb-3">
         <AmountRadioButton amount={3000} selectedAmount={selectedAmount} setSelectedAmount={setSelectedAmount} />
         <AmountRadioButton amount={5000} selectedAmount={selectedAmount} setSelectedAmount={setSelectedAmount} />
         <AmountRadioButton amount={10000} selectedAmount={selectedAmount} setSelectedAmount={setSelectedAmount} />

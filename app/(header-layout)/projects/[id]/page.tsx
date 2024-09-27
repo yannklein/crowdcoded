@@ -45,7 +45,7 @@ const Project = async ({ params }: { params: { id: string } }) => {
     }
   ]
   return (
-    <div className="h-[93vh] flex-col flex p-2 lg:h-auto lg:p-8 lg:gap-8 lg:flex-row">
+    <div className="h-[92vh] flex-col flex p-2 lg:h-auto lg:p-8 lg:gap-8 lg:flex-row">
       <div className="overflow-scroll flex-shrink min-w-0 lg:flex-grow lg:h-auto">
         <div className="pb-12 lg:pb-0 flex flex-col-reverse gap-3 lg:flex-row lg:gap-8">
           <img
