@@ -1,6 +1,19 @@
+import Link from "next/link";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const LandingBanner: React.FC = () => {
   return (
-    <div className="bg-lightBlue h-80 pb-4 lg:h-[28rem] flex flex-col items-center justify-center text-center drop-shadow-2xl ">
+    <div className="relative bg-lightBlue h-80 pb-4 lg:h-[28rem] flex flex-col items-center justify-center text-center drop-shadow-2xl ">
+      <div className="absolute top-4 right-9 flex space-x-6 items-center font-heading">
+        <FontAwesomeIcon icon={faGlobe} className="text-3xl" />
+        <Link href="/projects" className="text-3xl">
+          PROJECTS
+        </Link>
+        <Link href="/about" className="text-3xl">
+          ABOUT US
+        </Link>
+      </div>
       <div className="flex items-center justify-center">
         <img
           src="/logo.png"
