@@ -1,12 +1,12 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 // import Image from 'next/image';
-import { getImpactIcon } from '@/utils/getImpactIcon';
-import DonationProgress from './DonationProgress';
-import ImpactIcon from './ImpactIcon';
-import PrimaryButton from './PrimaryButton';
-import { ProjectProps } from '../types/Props';
-import SecondaryButton from './SecondaryButton';
+import { getImpactIcon } from "@/utils/getImpactIcon";
+import DonationProgress from "./DonationProgress";
+import ImpactIcon from "./ImpactIcon";
+import PrimaryButton from "./PrimaryButton";
+import { ProjectProps } from "../types";
+import SecondaryButton from "./SecondaryButton";
 
 const Project: React.FC<{ project: ProjectProps }> = async ({ project }) => {
   const { id, title, owners, description, impacts, mission } = project;

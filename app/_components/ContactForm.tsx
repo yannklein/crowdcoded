@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { useForm, ValidationError } from "@formspree/react";
+import { ContactFormProps } from "@/app/types";
 
-const ContactForm: React.FC = () => {
-  const [state, handleSubmit] = useForm("mldrqeov");
+const ContactForm = ({ formId }: ContactFormProps) => {
+  const [state, handleSubmit] = useForm(formId);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
