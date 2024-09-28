@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getImpactIcon } from "@/utils/getImpactIcon";
+import Tooltip from "./Tooltip";
 
 const categories = [
   "ORGANIC",
@@ -30,9 +31,17 @@ const ImpactfulBusinesses: React.FC = () => {
       <div className="flex flex-col md:flex-row justify-center gap-14 mb-14">
         {logos.map((icon) => (
           <div key={icon.text} className="flex flex-col items-center">
-            <div className="text-6xl mb-4" style={{ color: icon.color }}>
-              <FontAwesomeIcon icon={icon.icon} size="lg" />
-            </div>
+            {icon.tooltip ? (
+              <Tooltip message={icon.tooltip}>
+                <div className="text-6xl mb-4" style={{ color: icon.color }}>
+                  <FontAwesomeIcon icon={icon.icon} size="lg" />
+                </div>
+              </Tooltip>
+            ) : (
+              <div className="text-6xl mb-4" style={{ color: icon.color }}>
+                <FontAwesomeIcon icon={icon.icon} size="lg" />
+              </div>
+            )}
             <p className="text-2xl" style={{ color: icon.color }}>
               {icon.text}
             </p>
