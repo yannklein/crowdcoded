@@ -13,7 +13,7 @@ const Project: React.FC<{ project: ProjectProps }> = async ({ project }) => {
   const impactsData = impacts.map((impact: string) => getImpactIcon(impact));
 
   return (
-    <div className="bg-cream shadow-[0_0_24px_0_rgba(0,0,0,0.3)] rounded-md">
+    <div className="bg-cream shadow-default rounded-md">
       <div className="sm:flex sm:flex-row-reverse">
         <div className="flex flex-col justify-between p-8 sm:pb-0">
           <div className="font-heading">

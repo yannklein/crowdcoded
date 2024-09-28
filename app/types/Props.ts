@@ -1,10 +1,11 @@
-import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 type ImpactProps = {
-  text: string
-  icon: IconDefinition
-  color: string
-}
+  text: string;
+  icon: IconDefinition;
+  color: string;
+  tooltip?: string;
+};
 
 type ProjectProps = {
   id: string;
