@@ -1,30 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { getImpactIcon } from '@/utils/getImpactIcon';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DonationProgress from './DonationProgress';
-import { getDonationsPerProject } from '@/utils/getDonationsPerProject';
+import ImpactIcon from './ImpactIcon';
+import PrimaryButton from './PrimaryButton';
+import { ProjectProps } from '../types/Props';
+import SecondaryButton from './SecondaryButton';
 
-export type ProjectProps = {
-  id: string;
-  title: string;
-  description: string;
-  owners: string;
-  status: string;
-  goal: number;
-  mission: string;
-  impacts: string[];
-};
-
-const Project = async ({ project }) => {
-  const { id, title, owners, description } = project;
-  const impactLogos = project.impacts.map((impact) => getImpactIcon(impact));
-  const { count, amount } = await getDonationsPerProject(id);
-
-  const progressPct = Math.round((amount / project.goal) * 100);
-  console.log(progressPct);
-
+const Project: React.FC<{ project: ProjectProps }> = async ({ project }) => {
+  const { id, title, owners, description, impacts, mission } = project;
+  const impactsData = impacts.map((impact: string) => getImpactIcon(impact));
 
   return (
     <div className="bg-cream shadow-[0_0_24px_0_rgba(0,0,0,0.3)] rounded-md">
@@ -37,67 +23,27 @@ const Project = async ({ project }) => {
             </Link>
           </div>
           <div className="flex gap-3 md:gap-8 py-4">
-            {impactLogos.map((impactLogo) => (
-              <div
-                key={impactLogo.text}
-                className="text-center flex flex-col"
-                style={{ color: impactLogo.color }}
-              >
-                <FontAwesomeIcon
-                  className=" lg:!hidden"
-                  icon={impactLogo.icon}
-                  size="2x"
-                />
-                <FontAwesomeIcon
-                  className="!hidden lg:!block"
-                  icon={impactLogo.icon}
-                  size="3x"
-                />
-                <small>{impactLogo.text}</small>
-              </div>
+            {impactsData.map((impactData) => (
+              <ImpactIcon impact={impactData} />
             ))}
           </div>
           <p className="text-justify">{description}</p>
         </div>
         <img
           className="min-w-full sm:min-w-[260px] md:min-w-[180px] lg:min-w-[300px] xl:min-w-[360px] h-[300px] object-cover object-[50%_20%] sm:rounded-ss-md"
-          src="https://sho-farm.sunnyday.jp/wp-content/uploads/2023/04/%E3%83%9F%E3%83%8B%E3%82%B5%E3%82%A4%E3%82%BA.jpg"
+          src="https://res.cloudinary.com/yanninthesky/image/upload/v1727435190/crowdcoded/E3_83_9F_E3_83_8B_E3_82_B5_E3_82_A4_E3_82_BA_healyc.jpg"
           alt=""
         />
-        {/* <Image
-            src="https://sho-farm.sunnyday.jp/wp-content/uploads/2014/10/1415165056949.jpg"
-            alt={title}
-            width={100}
-            height={80}
-          /> */}
       </div>
       <div className="p-8">
         <div className="pb-8">
           <h3 className="font-heading text-2xl">Crowd Coded Mission</h3>
-          <p className="text-justify">{project.mission}</p>
+          <p className="text-justify">{mission}</p>
         </div>
-        <div className="pb-8">
-          <div className="flex justify-between font-heading">
-            <h3 className="text-2xl">{count} donators so far</h3>
-            <p className="text-md text-coralBlue">
-              ¥{amount} OUT OF ¥{project.goal}
-            </p>
-          </div>
-          <DonationProgress progress={progressPct} />
-        </div>
+        <DonationProgress project={project} />
         <div className="flex justify-end gap-8">
-          <Link
-            className="text-coralBlue bg-white px-1 rounded font-heading border-2 border-coralBlue text-3xl"
-            href={`/`}
-          >
-            Learn more
-          </Link>
-          <Link
-            className="text-white bg-coralBlue px-1 rounded font-heading border-2 border-coralBlue text-3xl"
-            href={`/`}
-          >
-            Donate
-          </Link>
+          <SecondaryButton href={`/projects/${id}`}>Learn more</SecondaryButton>
+          <PrimaryButton href={`/`}>Donate</PrimaryButton>
         </div>
       </div>
     </div>

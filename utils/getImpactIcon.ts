@@ -1,8 +1,10 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLeaf, faRecycle } from '@fortawesome/free-solid-svg-icons'
 import { faCreativeCommonsZero } from '@fortawesome/free-brands-svg-icons'
+import { ImpactProps } from '@/app/types/Props';
 
-export const getImpactIcon = (impact: string) => {
+type GetImpactIcon = (impact: string) => ImpactProps
+
+export const getImpactIcon: GetImpactIcon = (impact) => {
   const icons = {
     "SUSTAINABLE": {
       color: "#FFA653",
