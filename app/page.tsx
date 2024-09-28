@@ -8,6 +8,7 @@ import ContactForm from "@components/ContactForm";
 
 const Landing = async () => {
   const projects = await getProjects();
+  const formId = process.env.FORMSPREE;
 
   return (
     <div className="page">
@@ -25,7 +26,7 @@ const Landing = async () => {
         </div>
         <HowItWorks />
         <ImpactfulBusinesses />
-        <ContactForm />
+        <ContactForm formId={formId} />
       </main>
     </div>
   );
