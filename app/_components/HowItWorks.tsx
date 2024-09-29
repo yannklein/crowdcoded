@@ -7,10 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
-type Step = {
-  icon: IconProp;
-  description: JSX.Element;
-};
+import { Step } from "@/app/types";
 
 const steps: Step[] = [
   {

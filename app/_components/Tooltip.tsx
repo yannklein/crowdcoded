@@ -1,10 +1,6 @@
 "use client";
-import React, { ReactNode, useState } from "react";
-
-type TooltipProps = {
-  message: string;
-  children: ReactNode;
-};
+import React, { useState } from "react";
+import { TooltipProps } from "@/app/types";
 
 const Tooltip = ({ message, children }: TooltipProps) => {
   const [isVisible, setIsVisible] = useState(false);

@@ -1,23 +1,23 @@
-import React from 'react';
-import Link from 'next/link';
-import Markdown from 'react-markdown';
+import React from "react";
+import Link from "next/link";
+import Markdown from "react-markdown";
 
-import { faLaptop } from '@fortawesome/free-solid-svg-icons';
+import { faLaptop } from "@fortawesome/free-solid-svg-icons";
 import {
   faSquareFacebook,
   faSquareInstagram,
   faSquareYoutube,
-} from '@fortawesome/free-brands-svg-icons';
+} from "@fortawesome/free-brands-svg-icons";
 
-import { getProject } from '@/utils/getProject';
-import { getImpactIcon } from '@/utils/getImpactIcon';
-import { ProjectProps } from '@/app/types/Props';
+import { getProject } from "@/utils/getProject";
+import { getImpactIcon } from "@/utils/getImpactIcon";
+import { ProjectProps } from "@/app/types";
 
-import ImpactIcon from '@/app/_components/ImpactIcon';
-import FundingCard from '@/app/_components/FundingCard';
-import ProjectDetailsMenu from '@/app/_components/ProjectDetailsMenu';
-import ProjectMilestone from '@/app/_components/ProjectMilestone';
-import ProjectCarousel from '@/app/_components/ProjectCarousel';
+import ImpactIcon from "@/app/_components/ImpactIcon";
+import FundingCard from "@/app/_components/FundingCard";
+import ProjectDetailsMenu from "@/app/_components/ProjectDetailsMenu";
+import ProjectMilestone from "@/app/_components/ProjectMilestone";
+import ProjectCarousel from "@/app/_components/ProjectCarousel";
 
 const Project = async ({ params }: { params: { id: string } }) => {
   const project: ProjectProps = await getProject(params.id);
@@ -27,23 +27,26 @@ const Project = async ({ params }: { params: { id: string } }) => {
   // TODO: add slides data in DB
   const slides = [
     {
-      image: "https://res.cloudinary.com/yanninthesky/image/upload/c_crop,g_faces,h_2268,w_2268/v1727434655/crowdcoded/IMG_1109_ya48gv.jpg",
+      image:
+        "https://res.cloudinary.com/yanninthesky/image/upload/c_crop,g_faces,h_2268,w_2268/v1727434655/crowdcoded/IMG_1109_ya48gv.jpg",
       text: "Shoko and Sho welcome volunteers every Wednesday at their farm. As Adriana and I wanted to know more about permaculture, we decided to spend a day helping them. ",
     },
     {
-      image: "https://res.cloudinary.com/yanninthesky/image/upload/crowdcoded/IMG_1100_jkczll.jpg",
+      image:
+        "https://res.cloudinary.com/yanninthesky/image/upload/crowdcoded/IMG_1100_jkczll.jpg",
       text: "What stroke us first, was the deep connection between the farm and the surrounding nature. Bees and wasps roaming freely around the farm building feeding on the vines, spiders happily building their webs on chili pepper plants, all sorts of insects in the soil. It felt right to produce food in harmony with nature, in total opposition with the sterile fields of conventional agriculture. ",
-
     },
     {
-      image: "https://res.cloudinary.com/yanninthesky/image/upload/c_crop,g_faces,h_2268,w_2268/v1727435082/crowdcoded/IMG_1103_nxutxg.jpg",
+      image:
+        "https://res.cloudinary.com/yanninthesky/image/upload/c_crop,g_faces,h_2268,w_2268/v1727435082/crowdcoded/IMG_1103_nxutxg.jpg",
       text: "Shoko and Sho welcomed us, not as a workforce but rather as hosts, they took time to answer our questions, taught us how to farm, laughed with us, they invited us for lunch with produces of the farm and thank us with vegetable present when we left. We had a nice human experience on that day. ",
     },
     {
-      image: "https://res.cloudinary.com/yanninthesky/image/upload/v1727434666/crowdcoded/IMG_1116_boqo3x.jpg",
+      image:
+        "https://res.cloudinary.com/yanninthesky/image/upload/v1727434666/crowdcoded/IMG_1116_boqo3x.jpg",
       text: "A last thing we noticed on that day is that their farm is professionally managed to make them and their coworker a living and to feed the local Yokosuka population. Very far from the, sometimes “hippie organic” you might see, their agriculture feels like a model that could fit a future society that can rely on fossil fuels and chemicals anymore.",
-    }
-  ]
+    },
+  ];
   return (
     <div className="h-[92vh] flex-col flex p-2 lg:h-auto lg:p-8 lg:gap-8 lg:flex-row">
       <div className="overflow-scroll flex-shrink min-w-0 lg:flex-grow lg:h-auto">
@@ -97,7 +100,7 @@ const Project = async ({ params }: { params: { id: string } }) => {
           <h2 className="text-3xl mb-4" id="how-we-met-them">
             How we met them
           </h2>
-            <ProjectCarousel slides={slides} />
+          <ProjectCarousel slides={slides} />
         </div>
         <div className="pb-12 lg:pb-16">
           <h2 className="text-3xl mb-4" id="our-mission">
@@ -176,33 +179,33 @@ const Project = async ({ params }: { params: { id: string } }) => {
           <div className="flex gap-8">
             <Link target="_blank" href="http://sho-farm.sunnyday.jp">
               <ImpactIcon
-                impact={{ text: 'Website', icon: faLaptop, color: 'black' }}
+                impact={{ text: "Website", icon: faLaptop, color: "black" }}
               />
             </Link>
             <Link target="_blank" href="https://www.youtube.com/@shofarm2014">
               <ImpactIcon
                 impact={{
-                  text: 'Youtube channel',
+                  text: "Youtube channel",
                   icon: faSquareYoutube,
-                  color: 'black',
+                  color: "black",
                 }}
               />
             </Link>
             <Link target="_blank" href="https://www.facebook.com/2014sfarm">
               <ImpactIcon
                 impact={{
-                  text: 'Facebook page',
+                  text: "Facebook page",
                   icon: faSquareFacebook,
-                  color: 'black',
+                  color: "black",
                 }}
               />
             </Link>
             <Link target="_blank" href="https://www.instagram.com/sho__farm/">
               <ImpactIcon
                 impact={{
-                  text: 'Instagram channel',
+                  text: "Instagram channel",
                   icon: faSquareInstagram,
-                  color: 'black',
+                  color: "black",
                 }}
               />
             </Link>

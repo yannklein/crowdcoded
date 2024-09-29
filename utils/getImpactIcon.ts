@@ -1,4 +1,4 @@
-import { ImpactProps } from "@/app/types/Props";
+import { ImpactProps } from "@/app/types";
 import {
   faLeaf,
   faRecycle,
