@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import "../../styles/globals.css";
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import React from "react";
 import type { Metadata } from "next";
@@ -36,13 +36,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
+export default async function RootLayout({
+  children, params: { lang },
 }: {
   children: React.ReactNode;
+  params: { lang: string };
 }) {
   return (
-    <html lang="en">
+    <html lang={lang}>
       <body
         className={`${roboto.variable} ${bebasNeue.variable} layout`}
       >

@@ -21,7 +21,7 @@ import ProjectCarousel from "@/app/_components/ProjectCarousel";
 
 const Project = async ({ params }: { params: { id: string } }) => {
   const project: ProjectProps = await getProject(params.id);
-  const { title, description, owners, impacts } = project;
+  const { title, description, owners, impacts, id } = project;
   const impactsData = impacts.map((impact: string) => getImpactIcon(impact));
 
   // TODO: add slides data in DB
@@ -63,7 +63,7 @@ const Project = async ({ params }: { params: { id: string } }) => {
             </div>
             <div className="flex gap-3 md:gap-8">
               {impactsData.map((impactData) => (
-                <ImpactIcon impact={impactData} size="4x" />
+                <ImpactIcon impact={impactData} size="4x" key={`${id}-${impactData.text}`}/>
               ))}
             </div>
           </div>
