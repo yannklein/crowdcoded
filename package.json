@@ -12,6 +12,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.4",
     "@formspree/react": "^2.5.1",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
@@ -20,6 +21,7 @@
     "@prisma/client": "^5.19.1",
     "@vercel/postgres": "^0.10.0",
     "clsx": "^2.1.1",
+    "negotiator": "^0.6.3",
     "next": "^14.2.3",
     "react": "^18.0.2",
     "react-dom": "^18.0.2",

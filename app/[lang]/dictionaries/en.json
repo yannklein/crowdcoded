@@ -1,0 +1,37 @@
+{
+  "landing": {
+    "banner": {
+      "projects": "PROJECTS",
+      "about": "ABOUT US",
+      "title": "Crowded Code",
+      "subtitle1": "People that make the world better are rarely millionaires",
+      "subtitle2": "But they very often need a",
+      "subtitle3": "website",
+      "subtitle4": "",
+      "subtitle5": "Support them by",
+      "subtitle6": "funding their web project",
+      "subtitle7": "and demultiplying their positive impact"
+    },
+    "featured": {
+      "title": "Today’s project to support",
+      "mission": "Crowded Code mission",
+      "donate": "Fund",
+      "learnMore": "Learn more"
+    },
+    "howItWorks": {
+      "title": "How It Works"
+    },
+    "impactfulBusinesses": {
+      "title": "We Focus on Impactful Businesses",
+      "description1": "We are the first patrons of the impactful businesses we partner with, we decided to give them a bit of us because",
+      "description2": "they do an outstanding work in domain we cherish:",
+      "description3": ""
+    },
+    "contact": {
+      "title": "A Question? Contact Us",
+      "success": "TYour message has been sent successfully!",
+      "msgPlaceholder": "Your message...",
+      "send": "Send"
+    }
+  }
+}
