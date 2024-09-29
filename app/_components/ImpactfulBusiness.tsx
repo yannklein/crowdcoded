@@ -12,20 +12,19 @@ const categories = [
   "EQUAL",
 ];
 
-const ImpactfulBusinesses: React.FC = () => {
+const ImpactfulBusinesses = ({ dict }) => {
   const logos = categories.map((category) => getImpactIcon(category));
   return (
     <section className="pt-12 md:pt-28 pb-8 text-center">
       <h2 className="text-4xl md:text-5xl font-heading mb-4">
-        We Focus on Impactful Businesses
+        {dict.landing.impactfulBusinesses.title}
       </h2>
       <div className="flex justify-center mb-14">
         <p className="text-xl md:text-2xl px-8 md:px-28 md:w-3/4 mb-2 md:mb-8 font-light">
-          We are the first patrons of the impactful businesses we partner with,
-          we decided to give them a bit of us because{" "}
+          {dict.landing.impactfulBusinesses.description1}{" "}
           <span className="text-coralBlue">
-            they do an outstanding work in domain we cherish:
-          </span>
+          {dict.landing.impactfulBusinesses.description2}
+          </span>{dict.landing.impactfulBusinesses.description3}
         </p>
       </div>
       <div className="flex flex-col md:flex-row justify-center gap-14 mb-14">

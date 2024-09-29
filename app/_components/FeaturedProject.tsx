@@ -8,7 +8,7 @@ import PrimaryButton from "./PrimaryButton";
 import { ProjectProps } from "../types";
 import SecondaryButton from "./SecondaryButton";
 
-const Project: React.FC<{ project: ProjectProps }> = async ({ project }) => {
+const Project: React.FC<{ project: ProjectProps, dict: any }> = async ({ project, dict }) => {
   const { id, title, owners, description, impacts, mission } = project;
   const impactsData = impacts.map((impact: string) => getImpactIcon(impact));
 
@@ -17,7 +17,7 @@ const Project: React.FC<{ project: ProjectProps }> = async ({ project }) => {
       <div className="sm:flex sm:flex-row-reverse">
         <div className="flex flex-col justify-between p-8 sm:pb-0">
           <div className="font-heading">
-            <Link href={`/projects/${id}`}>
+            <Link href={`projects/${id}`}>
               <h2 className="text-4xl">{title}</h2>
               <small>{owners}</small>
             </Link>
@@ -37,13 +37,13 @@ const Project: React.FC<{ project: ProjectProps }> = async ({ project }) => {
       </div>
       <div className="p-8">
         <div className="pb-8">
-          <h3 className="font-heading text-2xl">Crowd Coded Mission</h3>
+          <h3 className="font-heading text-2xl">{dict.landing.featured.mission}</h3>
           <p className="text-justify">{mission}</p>
         </div>
         <DonationProgress project={project} />
         <div className="flex justify-end gap-8">
-          <SecondaryButton href={`/projects/${id}`}>Learn more</SecondaryButton>
-          <PrimaryButton href={`/`}>Donate</PrimaryButton>
+          <SecondaryButton href={`/projects/${id}`}>{dict.landing.featured.learnMore}</SecondaryButton>
+          <PrimaryButton href={`/`}>{dict.landing.featured.donate}</PrimaryButton>
         </div>
       </div>
     </div>
