@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+:root {
+  --color-coral-blue: #55a9bb;
+}
 
 html {
   box-sizing: border-box;
@@ -24,6 +27,11 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-bebas-neue);
+}
+
+em {
+  font-style: normal;
+  color: var(--color-coral-blue);
 }
 
 input,
