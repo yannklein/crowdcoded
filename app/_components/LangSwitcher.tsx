@@ -1,12 +1,14 @@
-"use client";
+'use client';
 
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 
 const LangSwitcher = () => {
   const [langShown, setLangShown] = useState(false);
+  const pathname = usePathname();
 
   return (
     <div className="relative">
@@ -19,8 +21,8 @@ const LangSwitcher = () => {
         style={{ display: langShown ? 'flex' : 'none' }}
         className="text-3xl flex-col items-center absolute bottom-0 left-1/2 translate-y-full -translate-x-1/2"
       >
-        <Link href={'?lang=en'}>EN</Link>
-        <Link href={'?lang=ja'}>JA</Link>
+        <Link href={{ pathname: pathname, query: { lang: 'en', refresher: new Date().toUTCString() } }}>EN</Link>
+        <Link href={{ pathname: pathname, query: { lang: 'ja', refresher: new Date().toUTCString() } }}>JA</Link>
       </div>
     </div>
   );
