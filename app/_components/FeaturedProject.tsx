@@ -40,7 +40,7 @@ const Project: React.FC<{ project: ProjectProps, dict: any }> = async ({ project
           <h3 className="font-heading text-2xl">{dict.landing.featured.mission}</h3>
           <p className="text-justify">{mission}</p>
         </div>
-        <DonationProgress project={project} />
+        <DonationProgress project={project}　dict={dict} />
         <div className="flex justify-end gap-8">
           <SecondaryButton href={`/projects/${id}`}>{dict.landing.featured.learnMore}</SecondaryButton>
           <PrimaryButton href={`/`}>{dict.landing.featured.donate}</PrimaryButton>

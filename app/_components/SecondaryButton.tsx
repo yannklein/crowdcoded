@@ -4,7 +4,7 @@ import React from 'react';
 const SecondaryButton = ({ href, children }) => {
   return (
     <Link
-      className="text-coralBlue bg-white px-1 rounded font-heading border-2 border-coralBlue text-3xl"
+      className="text-coralBlue bg-white px-1 rounded font-heading border-2 border-coralBlue text-3xl pt-1"
       href={href}
     >
       {children}

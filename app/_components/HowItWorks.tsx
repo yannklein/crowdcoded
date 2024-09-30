@@ -9,37 +9,24 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 import { Step } from "@/app/types";
 
-const steps: Step[] = [
-  {
-    icon: faUsers,
-    description: (
-      <>
-        You become <span className="text-coralBlue">the patron</span> of the web
-        project for an impactful business
-      </>
-    ),
-  },
-  {
-    icon: faLaptopCode,
-    description: (
-      <>
-        We build a tailor-made <span className="text-coralBlue">web app</span>{" "}
-        for them with your funding
-      </>
-    ),
-  },
-  {
-    icon: faHandshake,
-    description: (
-      <>
-        The business increases its{" "}
-        <span className="text-coralBlue">positive impact</span> on our society
-      </>
-    ),
-  },
-];
+
 
 const HowItWorks = ({ dict }) => {
+  const steps: Step[] = [
+    {
+      icon: faUsers,
+      description: dict.landing.howItWorks.step1,
+    },
+    {
+      icon: faLaptopCode,
+      description: dict.landing.howItWorks.step2,
+    },
+    {
+      icon: faHandshake,
+      description: dict.landing.howItWorks.step3,
+    },
+  ];
+  
   return (
     <section className="bg-lightBlue text-center flex flex-col items-center w-fulle md:h-[548px] py-24 shadow-default">
       <h2 className="text-5xl font-heading mb-12">{dict.landing.howItWorks.title}</h2>
@@ -48,7 +35,7 @@ const HowItWorks = ({ dict }) => {
           <div key={index} className="flex flex-col items-center">
             <FontAwesomeIcon icon={step.icon} size="7x" />
             <div className="text-2xl mt-5 mb-4 w-72">
-              <p className="">{step.description}</p>
+              <p dangerouslySetInnerHTML={{ __html: step.description}} />
             </div>
           </div>
         ))}

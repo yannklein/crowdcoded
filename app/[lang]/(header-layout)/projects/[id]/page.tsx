@@ -18,11 +18,13 @@ import FundingCard from "@/app/_components/FundingCard";
 import ProjectDetailsMenu from "@/app/_components/ProjectDetailsMenu";
 import ProjectMilestone from "@/app/_components/ProjectMilestone";
 import ProjectCarousel from "@/app/_components/ProjectCarousel";
+import { getDictionary } from "@/app/[lang]/dictionaries";
 
-const Project = async ({ params }: { params: { id: string } }) => {
-  const project: ProjectProps = await getProject(params.id);
-  const { title, description, owners, impacts, id } = project;
+const Project = async ({ params: { id, lang } }: { params: { id: string, lang: string } }) => {
+  const project: ProjectProps = await getProject(id);
+  const { title, description, owners, impacts } = project;
   const impactsData = impacts.map((impact: string) => getImpactIcon(impact));
+  const dict = await getDictionary(lang);
 
   // TODO: add slides data in DB
   const slides = [
@@ -68,10 +70,10 @@ const Project = async ({ params }: { params: { id: string } }) => {
             </div>
           </div>
         </div>
-        <ProjectDetailsMenu />
+        <ProjectDetailsMenu dict={dict} />
         <div className="pb-12 lg:pb-16">
           <h2 className="text-3xl mb-4" id="who-they-are">
-            Who they are
+            {dict.projectDetails.menu.whoTheyAre}
           </h2>
           <div className="flex flex-col lg:flex-row gap-3 lg:gap-16">
             <p className="lg:w-1/2 text-justify">
@@ -98,13 +100,13 @@ const Project = async ({ params }: { params: { id: string } }) => {
         </div>
         <div className="pb-12 lg:pb-16">
           <h2 className="text-3xl mb-4" id="how-we-met-them">
-            How we met them
+            {dict.projectDetails.menu.howWeMetThem}
           </h2>
           <ProjectCarousel slides={slides} />
         </div>
         <div className="pb-12 lg:pb-16">
           <h2 className="text-3xl mb-4" id="our-mission">
-            Our Mission
+            {dict.projectDetails.menu.ourMission}
           </h2>
           <Markdown className="mb-4">
             Shoko and Sho’s farm website has been around for quite sometimes and
@@ -146,7 +148,7 @@ const Project = async ({ params }: { params: { id: string } }) => {
         </div>
         <div className="pb-12 lg:pb-16">
           <h2 className="text-3xl mb-4" id="details-of-the-work">
-            Details of the Work
+            {dict.projectDetails.menu.detailsOfTheWork}
           </h2>
           <h3 className="text-2xl">Issues of the Current website</h3>
           <p>
@@ -174,7 +176,7 @@ const Project = async ({ params }: { params: { id: string } }) => {
         </div>
         <div className="pb-12 lg:pb-16">
           <h2 className="text-3xl mb-4" id="links">
-            Links
+            {dict.projectDetails.menu.links}
           </h2>
           <div className="flex gap-8">
             <Link target="_blank" href="http://sho-farm.sunnyday.jp">
@@ -185,7 +187,7 @@ const Project = async ({ params }: { params: { id: string } }) => {
             <Link target="_blank" href="https://www.youtube.com/@shofarm2014">
               <ImpactIcon
                 impact={{
-                  text: "Youtube channel",
+                  text: "Youtube",
                   icon: faSquareYoutube,
                   color: "black",
                 }}
@@ -194,7 +196,7 @@ const Project = async ({ params }: { params: { id: string } }) => {
             <Link target="_blank" href="https://www.facebook.com/2014sfarm">
               <ImpactIcon
                 impact={{
-                  text: "Facebook page",
+                  text: "Facebook",
                   icon: faSquareFacebook,
                   color: "black",
                 }}
@@ -203,7 +205,7 @@ const Project = async ({ params }: { params: { id: string } }) => {
             <Link target="_blank" href="https://www.instagram.com/sho__farm/">
               <ImpactIcon
                 impact={{
-                  text: "Instagram channel",
+                  text: "Instagram",
                   icon: faSquareInstagram,
                   color: "black",
                 }}
@@ -212,7 +214,7 @@ const Project = async ({ params }: { params: { id: string } }) => {
           </div>
         </div>
       </div>
-      <FundingCard project={project} />
+      <FundingCard project={project} dict={dict} />
     </div>
   );
 };

@@ -29,7 +29,7 @@ const Header: React.FC = () => {
         <div className="gap-3 hidden sm:flex">
           <LangSwitcher />
           <Link href="/projects" className="text-2xl">Projects</Link>
-          <Link href="/about" className="text-2xl">About</Link>
+          <Link href="/about" className="text-2xl">About us</Link>
         </div>
       </div>
     </nav>
