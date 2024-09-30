@@ -24,7 +24,6 @@ function getLocale(request: NextRequest): string {
 }
 
 export function middleware(request: NextRequest) {
-  console.log("boom", request.nextUrl.searchParams.get('lang'));
 
   if (request.nextUrl.pathname.startsWith('/_next')) return NextResponse.next();
 
@@ -57,11 +56,11 @@ export function middleware(request: NextRequest) {
 
       // Set locale to cookie
       response.cookies.set(cookieName, newLocale);
-      
+
       return response;
     }
   } catch (error) {
-    console.log('Error switching language', error);
+    console.error('Error switching language', error);
     return null;
   }
 
@@ -84,7 +83,7 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     // Skip all internal paths (_next)
-    '/((?!_next).*)',
+    '/((?!api|_next/static|_next/image|assets|favicon.ico|logo.png|sw.js).*)',
     // Optional: only run on root (/) URL
     // '/'
   ],
