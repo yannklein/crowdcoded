@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { JsonValue } from "@prisma/client/runtime/library";
 
 export type ImpactProps = {
   text: string;
@@ -10,14 +11,29 @@ export type ImpactProps = {
 };
 
 export type ProjectProps = {
+  // from project table
   id: string;
   title: string;
   description: string;
-  owners: string;
   status: string;
   goal: number;
-  mission: string;
   impacts: string[];
+  ownersPicture?: string;
+  projectPicture?: string;
+  // to be get rid of
+  owners: string;
+  mission: string;
+  // from project_translations table
+  projectTranslations: { 
+    id: string;
+    title: string;
+    description: string;
+    owners: string;
+    lang: string;
+    meetStory: JsonValue;
+    mission: string;
+    work: string;
+  }[];
 };
 
 // ContactForm component
