@@ -8,7 +8,7 @@ import ContactForm from '@components/ContactForm';
 import { getDictionary } from './dictionaries';
 
 const Landing = async ({ params: { lang } }) => {
-  const projects = await getProjects();
+  const projects = await getProjects(lang);
   const dict = await getDictionary(lang);
 
   const formId = process.env.FORMSPREE;  
