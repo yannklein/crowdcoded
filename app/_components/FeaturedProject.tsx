@@ -36,10 +36,12 @@ const Project: React.FC<{ project: ProjectProps; dict: any }> = async ({
             </div>
             <div className="flex gap-3 md:gap-8 py-4">
               {impactsData.map((impactData) => (
-                <ImpactIcon impact={impactData} />
+                <ImpactIcon impact={impactData} key={impactData.text} />
               ))}
             </div>
-            <p className="text-justify">{description}</p>
+            <p className="text-justify">
+              {description.slice(0, descriptionLength[lang])}...
+            </p>
           </div>
           <img
             className="min-w-full sm:min-w-[260px] md:min-w-[180px] lg:min-w-[300px] xl:min-w-[360px] h-[300px] object-cover object-[50%_20%] sm:rounded-ss-md"
@@ -52,12 +54,12 @@ const Project: React.FC<{ project: ProjectProps; dict: any }> = async ({
             <h3 className="font-heading text-2xl">
               {dict.landing.featured.mission}
             </h3>
-            <p className="text-justify">{mission}</p>
+            <ReactMarkdown className="text-justify">{mission}</ReactMarkdown>
           </div>
           <DonationProgress
+            goal={goal}
             count={count}
             amount={amount}
-            goal={goal}
             dict={dict}
           />
           <div className="flex justify-end gap-8">
@@ -68,40 +70,10 @@ const Project: React.FC<{ project: ProjectProps; dict: any }> = async ({
               count={count}
               amount={amount}
               goal={goal}
-              dict={dict}
               mission={mission}
+              dict={dict}
             />
           </div>
-          <p className="text-justify">
-            {description.slice(0, descriptionLength[lang])}...
-          </p>
-        </div>
-        <img
-          className="min-w-full sm:min-w-[260px] md:min-w-[180px] lg:min-w-[300px] xl:min-w-[360px] h-[300px] object-cover object-[50%_20%] sm:rounded-ss-md"
-          src="https://res.cloudinary.com/yanninthesky/image/upload/v1727435190/crowdcoded/E3_83_9F_E3_83_8B_E3_82_B5_E3_82_A4_E3_82_BA_healyc.jpg"
-          alt=""
-        />
-      </div>
-      <div className="p-8">
-        <div className="pb-8">
-          <h3 className="font-heading text-2xl">
-            {dict.landing.featured.mission}
-          </h3>
-          <p className="text-justify">
-            <ReactMarkdown>{mission}</ReactMarkdown>
-          </p>
-        </div>
-        <DonationProgress
-          goal={goal}
-          count={count}
-          amount={amount}
-          dict={dict}
-        />
-        <div className="flex justify-end gap-8">
-          <SecondaryButton href={`/projects/${id}`}>
-            {dict.landing.featured.learnMore}
-          </SecondaryButton>
-          <FundModal project={project} dict={dict} />
         </div>
       </div>
     </>
