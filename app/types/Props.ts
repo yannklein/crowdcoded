@@ -23,6 +23,7 @@ export type ProjectProps = {
 // ContactForm component
 export type ContactFormProps = {
   formId: string;
+  dict: any;
 };
 
 // HowItWorks component

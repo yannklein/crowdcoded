@@ -1,0 +1,56 @@
+{  
+  "landing": {  
+    "banner": {  
+      "projects": "PROJECTS",  
+      "about": "ABOUT US",  
+      "title": "Crowded Code",  
+      "subtitle1": "世界をより良くする人々は、めったに百万長者ではありません。",  
+      "subtitle2": "しかし、彼らはしばしば",  
+      "subtitle3": "ウェブサイト",  
+      "subtitle4": "が必要です。",  
+      "subtitle5": "彼らの",  
+      "subtitle6": "ウェブプロジェクトに資金を提供",
+      "subtitle7": "して、ポジティブな影響を拡大しましょう。"
+    },  
+    "featured": {  
+      "title": "今日の資金提供プロジェクト",  
+      "mission": "CROWD CODEDのミッション",  
+      "donate": "支援する",  
+      "learnMore": "もっと読む"  
+    },  
+    "howItWorks": {  
+      "title": "どのように機能するか",
+      "step1": "影響力のあるビジネスのためのウェブプロジェクトの<em>支援者</em>になります。",
+      "step2": "資金提供で、彼らのためにオーダーメイドの<br/><em>ウェブアプリ</em>を作ります。",
+      "step3": "ビジネスは私たちの社会に対する<em>ポジティブな影響</em>を高めています。"
+    },
+    "impactfulBusinesses": {  
+      "title": "影響力のあるビジネスに注力しています",  
+      "description1": "私たちは、提携している影響力のあるビジネスの初めての支援者です。",  
+      "description2": "彼らが私たちが大切に思う分野で素晴らしい仕事をしている",
+      "description3": "ため、私たちの一部を彼らに提供することに決めました。"
+    },  
+    "contact": {  
+      "title": "お問い合わせ",  
+      "success": "メッセージが正常に送信されました！",  
+      "msgPlaceholder": "こちらにメッセージを書いて下さい",  
+      "send": "送信"  
+    }  
+  },
+  "projectDetails" : {
+    "menu": {
+      "whoTheyAre": "企業紹介",
+      "howWeMetThem": "出会ったきっかけ",
+      "ourMission": "CROWD CODEDのミッション",
+      "detailsOfTheWork": "作業の詳細",
+      "links": "リンク"
+    },
+    "fundingCard": {
+      "title": "CROWD CODEDのミッション",
+      "beAPatron": "支援チームに参加しましょう",
+      "sponsorsSoFar": "人の資金提供者がいます",
+      "outOf": "/",
+      "fundThem": "支援する"
+    }
+  }  
+}  

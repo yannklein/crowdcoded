@@ -3,8 +3,9 @@ import { cn } from "@/lib/twMerge";
 import { getDonationsPerProject } from "@/utils/getDonationsPerProject";
 import { ProjectProps } from "@/app/types";
 
-const DonationProgress: React.FC<{ project: ProjectProps }> = async ({
+const DonationProgress: React.FC<{ project: ProjectProps, dict: any }> = async ({
   project,
+  dict
 }) => {
   const { count, amount } = await getDonationsPerProject(project.id);
 
@@ -15,9 +16,9 @@ const DonationProgress: React.FC<{ project: ProjectProps }> = async ({
   return (
     <div className="pb-2">
       <div className="flex justify-between font-heading items-center">
-        <h3 className="text-xl lg:text-2xl">{count} sponsors so far</h3>
+        <h3 className="text-xl lg:text-xl">{count} {dict.projectDetails.fundingCard.sponsorsSoFar}</h3>
         <p className="text-sm lg:text-md text-coralBlue">
-          ¥{amount} OUT OF ¥{project.goal}
+          ¥{amount} {dict.projectDetails.fundingCard.outOf} ¥{project.goal}
         </p>
       </div>
       <div className={cn(classComputed)}>

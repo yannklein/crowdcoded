@@ -4,7 +4,7 @@ import React from 'react';
 import AmountRadioButton from './AmountRadioButton';
 import PrimaryButton from './PrimaryButton';
 
-const FundingAmountSelector = () => {
+const FundingAmountSelector = ({ dict }) => {
   const [selectedAmount, setSelectedAmount] = React.useState(5000);
   const [freeInputAmount, setFreeInputAmount] = React.useState(0);
 
@@ -31,7 +31,7 @@ const FundingAmountSelector = () => {
         </div>
       </div>
       <PrimaryButton width="100%" href={'/'}>
-        Fund them
+        {dict.projectDetails.fundingCard.fundThem}
       </PrimaryButton>
     </div>
   );

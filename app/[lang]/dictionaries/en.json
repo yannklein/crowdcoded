@@ -1,0 +1,56 @@
+{
+  "landing": {
+    "banner": {
+      "projects": "PROJECTS",
+      "about": "ABOUT US",
+      "title": "Crowded Code",
+      "subtitle1": "People that make the world better are rarely millionaires",
+      "subtitle2": "But they very often need a",
+      "subtitle3": "website",
+      "subtitle4": "",
+      "subtitle5": "Support them by",
+      "subtitle6": "funding their web project",
+      "subtitle7": "and demultiplying their positive impact"
+    },
+    "featured": {
+      "title": "Today’s project to support",
+      "mission": "Crowded Code mission",
+      "donate": "Fund",
+      "learnMore": "Learn more"
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "step1": "You become <em>the patron</em> of the web project for an impactful business",
+      "step2": "We build a tailor-made<br/><em>web app</em> for them with your funding",
+      "step3": "The business increases its <em>positive impact</em> on our society"
+    },
+    "impactfulBusinesses": {
+      "title": "We Focus on Impactful Businesses",
+      "description1": "We are the first patrons of the impactful businesses we partner with, we decided to give them a bit of us because",
+      "description2": "they do an outstanding work in domain we cherish:",
+      "description3": ""
+    },
+    "contact": {
+      "title": "A Question? Contact Us",
+      "success": "TYour message has been sent successfully!",
+      "msgPlaceholder": "Your message...",
+      "send": "Send"
+    }
+  },
+  "projectDetails" : {
+    "menu": {
+      "whoTheyAre": "Who they are",
+      "howWeMetThem": "How we met them",
+      "ourMission": "Our Mission",
+      "detailsOfTheWork": "Details of the Work",
+      "links": "Links"
+    },
+    "fundingCard": {
+      "title": "Crowd Coded Mission",
+      "beAPatron": "Be part of the patrons team",
+      "sponsorsSoFar": "sponsors so far",
+      "outOf": "OUT OF",
+      "fundThem": "FUND THEM"
+    }
+  }
+}

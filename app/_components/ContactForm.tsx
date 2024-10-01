@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { ContactFormProps } from "@/app/types";
 
-const ContactForm = ({ formId }: ContactFormProps) => {
+const ContactForm = ({ formId, dict }: ContactFormProps) => {
   const [state, handleSubmit] = useForm(formId);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -16,11 +16,11 @@ const ContactForm = ({ formId }: ContactFormProps) => {
   return (
     <section className="bg-lightBlue py-20 text-center">
       <h2 className="text-3xl md:text-5xl font-heading mb-4">
-        A Question? Contact Us
+        {dict.landing.contact.title}
       </h2>
       {state.succeeded ? (
         <p className="text-xl text-green-600">
-          Your message has been sent successfully!
+          {dict.landing.contact.success}
         </p>
       ) : (
         <form
@@ -50,7 +50,7 @@ const ContactForm = ({ formId }: ContactFormProps) => {
           <textarea
             id="message"
             name="message"
-            placeholder="Your message..."
+            placeholder={dict.landing.contact.msgPlaceholder}
             className="w-full p-3 h-40 rounded focus:outline-none focus:ring-2 focus:ring-coralBlue"
             required
           />
@@ -64,7 +64,7 @@ const ContactForm = ({ formId }: ContactFormProps) => {
             disabled={state.submitting}
             className="w-full md:w-36 font-heading text-2xl px-12 py-1 bg-coralBlue text-white rounded hover:bg-blue-700 self-end hover:opacity-80"
           >
-            Send
+            {dict.landing.contact.send}
           </button>
         </form>
       )}

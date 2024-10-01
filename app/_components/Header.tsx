@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import Image from 'next/image';
+import LangSwitcher from "./LangSwitcher";
 
 
 const Header: React.FC = () => {
@@ -26,8 +27,9 @@ const Header: React.FC = () => {
             <p className="drop-shadow hidden md:block">Devs for a better future</p>
         </Link>
         <div className="gap-3 hidden sm:flex">
+          <LangSwitcher />
           <Link href="/projects" className="text-2xl">Projects</Link>
-          <Link href="/about" className="text-2xl">About</Link>
+          <Link href="/about" className="text-2xl">About us</Link>
         </div>
       </div>
     </nav>

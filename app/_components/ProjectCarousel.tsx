@@ -8,6 +8,7 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Pagination } from 'swiper/modules';
+import { Fragment } from 'react';
 
 const ProjectCarousel = ({ slides }) => {
   const pagination = {
@@ -27,8 +28,8 @@ const ProjectCarousel = ({ slides }) => {
       slidesPerView={1}
     >
       {slides.map((slide, index) => (
-        <>
-          <SwiperSlide className='!hidden lg:!block'>
+        <Fragment key={`slide-frame-${index}`}>
+          <SwiperSlide key={`slide-large-${index}`} className='!hidden lg:!block'>
             <div
               className="flex"
               style={{ flexDirection: index % 2 === 0 ? 'row' : 'row-reverse'}}
@@ -43,7 +44,7 @@ const ProjectCarousel = ({ slides }) => {
               />
             </div>
           </SwiperSlide>
-          <SwiperSlide className='!block lg:!hidden'>
+          <SwiperSlide key={`slide-small-${index}`} className='!block lg:!hidden'>
             <div
               className="flex pb-8 justify-center"
               style={{ flexDirection: index % 2 === 0 ? 'column' : 'column-reverse'}}
@@ -58,7 +59,7 @@ const ProjectCarousel = ({ slides }) => {
               />
             </div>
           </SwiperSlide>
-        </>
+        </Fragment>
       ))}
     </Swiper>
   );

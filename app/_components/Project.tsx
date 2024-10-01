@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ProjectProps } from "@/app/types";
 import DonationProgress from "./DonationProgress";
 
-const Project: React.FC<{ project: ProjectProps }> = ({ project }) => {
+const Project: React.FC<{ project: ProjectProps, dict: any }> = ({ project, dict }) => {
   const { id, title, owners, description } = project;
   return (
     <Link className="block shadow-default bg-cream rounded" href={`/projects/${id}`}>
@@ -12,7 +12,7 @@ const Project: React.FC<{ project: ProjectProps }> = ({ project }) => {
         <img className="w-[80px] min-w-[80px] h-[80px] min-h-[80px] sm:w-[112px] sm:min-w-[112px] sm:h-[112px] sm:min-h-[112px] border-4 rounded-full rounded-br-none object-cover object-top" src="https://res.cloudinary.com/yanninthesky/image/upload/v1727435190/crowdcoded/E3_83_9F_E3_83_8B_E3_82_B5_E3_82_A4_E3_82_BA_healyc.jpg" alt="project" />
         <div>
           <p className="mb-2">Help <span className="font-bold">{owners}</span> fund their website</p>
-          <DonationProgress project={project} />
+          <DonationProgress project={project} dict={dict} />
         </div>
       </div>
     </Link>
