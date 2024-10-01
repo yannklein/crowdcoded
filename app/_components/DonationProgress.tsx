@@ -16,7 +16,7 @@ const DonationProgress: React.FC<{ project: ProjectProps, dict: any }> = async (
   return (
     <div className="pb-2">
       <div className="flex justify-between font-heading items-center">
-        <h3 className="text-xl lg:text-xl">{count} {dict.projectDetails.fundingCard.sponsorsSoFar}</h3>
+        <h3 className="text-md lg:text-md">{count} {dict.projectDetails.fundingCard.sponsorsSoFar}</h3>
         <p className="text-sm lg:text-md text-coralBlue">
           ¥{amount} {dict.projectDetails.fundingCard.outOf} ¥{project.goal}
         </p>

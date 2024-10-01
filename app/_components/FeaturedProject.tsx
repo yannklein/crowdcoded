@@ -7,10 +7,16 @@ import ImpactIcon from "./ImpactIcon";
 import PrimaryButton from "./PrimaryButton";
 import { ProjectProps } from "../types";
 import SecondaryButton from "./SecondaryButton";
+import ReactMarkdown from "react-markdown";
 
 const Project: React.FC<{ project: ProjectProps, dict: any }> = async ({ project, dict }) => {
-  const { id, title, owners, description, impacts, mission } = project;
+  const { id, impacts, projectTranslations } = project;
+  const { owners, title, description, mission, lang } = projectTranslations[0];
   const impactsData = impacts.map((impact: string) => getImpactIcon(impact));
+  const descriptionLength = {
+    EN: 300,
+    JA: 144
+  }
 
   return (
     <div className="bg-cream shadow-default rounded-md">
@@ -27,7 +33,7 @@ const Project: React.FC<{ project: ProjectProps, dict: any }> = async ({ project
               <ImpactIcon impact={impactData} />
             ))}
           </div>
-          <p className="text-justify">{description}</p>
+          <p className="text-justify">{description.slice(0,descriptionLength[lang])}...</p>
         </div>
         <img
           className="min-w-full sm:min-w-[260px] md:min-w-[180px] lg:min-w-[300px] xl:min-w-[360px] h-[300px] object-cover object-[50%_20%] sm:rounded-ss-md"
@@ -38,7 +44,11 @@ const Project: React.FC<{ project: ProjectProps, dict: any }> = async ({ project
       <div className="p-8">
         <div className="pb-8">
           <h3 className="font-heading text-2xl">{dict.landing.featured.mission}</h3>
-          <p className="text-justify">{mission}</p>
+          <p className="text-justify">
+            <ReactMarkdown>
+              {mission}
+            </ReactMarkdown>
+          </p>
         </div>
         <DonationProgress project={project}　dict={dict} />
         <div className="flex justify-end gap-8">
