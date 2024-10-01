@@ -19,7 +19,7 @@ import ProjectDetailsMenu from "@/app/_components/ProjectDetailsMenu";
 import ProjectMilestone from "@/app/_components/ProjectMilestone";
 import ProjectCarousel from "@/app/_components/ProjectCarousel";
 
-const Project = async ({ params }: { params: { id: string } }) => {
+const ProjectDetails = async ({ params }: { params: { id: string } }) => {
   const project: ProjectProps = await getProject(params.id);
   const { title, description, owners, impacts } = project;
   const impactsData = impacts.map((impact: string) => getImpactIcon(impact));
@@ -217,4 +217,4 @@ const Project = async ({ params }: { params: { id: string } }) => {
   );
 };
 
-export default Project;
+export default ProjectDetails;
