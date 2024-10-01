@@ -52,5 +52,11 @@
       "outOf": "/",
       "fundThem": "支援する"
     }
+  },
+  "projects": {
+    "ongoing": "支援中プロジェクト",
+    "ongoings": "支援中プロジェクト",
+    "helpMessage1": "",
+    "helpMessage2": " のプロジェクト支援を協力しましょう"
   }  
 }  

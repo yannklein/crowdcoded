@@ -52,5 +52,11 @@
       "outOf": "OUT OF",
       "fundThem": "FUND THEM"
     }
+  },
+  "projects": {
+    "ongoing": "on-going project",
+    "ongoings": "on-going projects",
+    "helpMessage1": "Help ",
+    "helpMessage2": " fund their project"
   }
 }
