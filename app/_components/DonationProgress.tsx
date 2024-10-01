@@ -1,24 +1,26 @@
-import React from "react";
-import { cn } from "@/lib/twMerge";
-import { getDonationsPerProject } from "@/utils/getDonationsPerProject";
-import { ProjectProps } from "@/app/types";
+'use client';
 
-const DonationProgress: React.FC<{ project: ProjectProps, dict: any }> = async ({
-  project,
-  dict
-}) => {
-  const { count, amount } = await getDonationsPerProject(project.id);
+import React from 'react';
+import { cn } from '@/lib/twMerge';
 
-  const progressPct = Math.round((amount / project.goal) * 100);
+const DonationProgress: React.FC<{
+  goal: number;
+  count: number;
+  amount: number;
+  dict: any;
+}> = ({ goal, count, amount, dict }) => {
+  const progressPct = Math.round((amount / goal) * 100);
   const classComputed =
-    "relative rounded text-center font-heading text-xl bg-white w-full h-8";
+    'relative rounded text-center font-heading text-xl bg-white w-full h-8';
 
   return (
     <div className="pb-2">
       <div className="flex justify-between font-heading items-center">
-        <h3 className="text-md lg:text-md">{count} {dict.projectDetails.fundingCard.sponsorsSoFar}</h3>
+        <h3 className="text-md lg:text-md">
+          {count} {dict.projectDetails.fundingCard.sponsorsSoFar}
+        </h3>
         <p className="text-sm lg:text-md text-coralBlue">
-          ¥{amount} {dict.projectDetails.fundingCard.outOf} ¥{project.goal}
+          ¥{amount} {dict.projectDetails.fundingCard.outOf} ¥{goal}
         </p>
       </div>
       <div className={cn(classComputed)}>

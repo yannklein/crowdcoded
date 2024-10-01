@@ -3,8 +3,14 @@ import Markdown from "react-markdown";
 import DonationProgress from "./DonationProgress";
 import { ProjectProps } from "@/app/types";
 import FundingAmountSelector from "./FundingAmountSelector";
+import { getDonationsPerProject } from "@/utils/getDonationsPerProject";
 
-const FundingCard: React.FC<{ project: ProjectProps, dict: any }> = ({ project, dict }) => {
+const FundingCard: React.FC<{ project: ProjectProps; dict: any }> = async ({
+  project,
+  dict,
+}) => {
+  const { goal } = project;
+  const { count, amount } = await getDonationsPerProject(project.id);
   return (
     <div className="p-4 lg:p-8 min-w-100 lg:min-w-[400px] h-fit sticky top-8 bg-cream rounded-md shadow-[0_0_24px_0_rgba(0,0,0,0.3)]">
       <div className="hidden lg:block ">
@@ -22,7 +28,7 @@ const FundingCard: React.FC<{ project: ProjectProps, dict: any }> = ({ project, 
           that will help them better sell their produce.
         </Markdown>
       </div>
-      <DonationProgress project={project} dict={dict} />
+      <DonationProgress goal={goal} amount={amount} count={count} dict={dict} />
       <h3 className="hidden lg:block text-xl lg:text-2xl text-center lg:mb-2">
         {dict.projectDetails.fundingCard.beAPatron}
       </h3>
