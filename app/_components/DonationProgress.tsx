@@ -14,7 +14,7 @@ const DonationProgress: React.FC<{ project: ProjectProps, dict: any }> = async (
     "relative rounded text-center font-heading text-xl bg-white w-full h-8";
 
   return (
-    <div className="pb-2 lg:*:pb-8">
+    <div className="pb-2">
       <div className="flex justify-between font-heading items-center">
         <h3 className="text-xl lg:text-xl">{count} {dict.projectDetails.fundingCard.sponsorsSoFar}</h3>
         <p className="text-sm lg:text-md text-coralBlue">

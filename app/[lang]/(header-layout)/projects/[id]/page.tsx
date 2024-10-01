@@ -20,7 +20,7 @@ import ProjectMilestone from "@/app/_components/ProjectMilestone";
 import ProjectCarousel from "@/app/_components/ProjectCarousel";
 import { getDictionary } from "@/app/[lang]/dictionaries";
 
-const Project = async ({ params: { id, lang } }: { params: { id: string, lang: string } }) => {
+const ProjectDetails = async ({ params: { id, lang } }: { params: { id: string, lang: string } }) => {
   const project: ProjectProps = await getProject(id);
   const { title, description, owners, impacts } = project;
   const impactsData = impacts.map((impact: string) => getImpactIcon(impact));
@@ -219,4 +219,4 @@ const Project = async ({ params: { id, lang } }: { params: { id: string, lang: s
   );
 };
 
-export default Project;
+export default ProjectDetails;
