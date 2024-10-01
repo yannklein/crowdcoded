@@ -6,8 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { getDictionary } from '../../dictionaries';
 
-const About = async () => {
+const About = async ({ params: { lang }}) => {
   const profilePromises = [
     getGHProfile('adrianaito'),
     getGHProfile('yannklein'),
@@ -17,29 +18,14 @@ const About = async () => {
     "https://www.linkedin.com/in/adriana-ito/",
     "https://www.linkedin.com/in/yann-klein/",
   ]
+  const dict = await getDictionary(lang);
+  const aboutText = dict.about.text
+  console.log(aboutText);
+  
 
-  const aboutText = `
-We are a couple of web developer living and working in Tokyo. By day, we work for our respective companies, but in our spare time, we transform into freelance 
-developers dedicated to **supporting small businesses that aim to make a positive impact on the world**.
-
-　  
-**Adriana** is originally from Brazil, she has been living and working in Japan since 2006. Her personal experiences have fueled her passion for social and environmental 
-causes, leading her to collaborate with startups like [Matinno](https://www.matinno.co/en) or Siventh.
-
-　  
-**Yann** was born in France near the German border, he arrived in Japan in 2010. A passionate maker, he has been actively involved in developing startups 
-in various domains such as VR, EdTech and SocialTech.
-
-　  
-The idea behind **Crowd Coded** emerged from our observation that businesses that care for people, that address environmental issues, 
-and try to improve our quality of life are often not highly bankable. They can't always easily spare money for their web presence and related needs.
-
-　  
-On the web or elsewhere, we believe that **they need our help to help others better**.
-  `
   return (
     <div>
-      <h1 className="text-8xl text-center my-10">About us</h1>
+      <h1 className="text-8xl text-center my-10">{dict.about.title}</h1>
       <div className="flex flex-col lg:flex-row mb-10 gap-16 mx-3 sm:mx-16 xl:mx-24 xl:gap-24">
         <div className="lg:w-1/3 flex flex-col">
           <img
@@ -50,7 +36,7 @@ On the web or elsewhere, we believe that **they need our help to help others bet
         </div>
         <div className="lg:w-2/3 flex flex-col justify-around text-justify">
           <div className="mb-8">
-            <ReactMarkdown className=" w-full prose-a:text-coralBlue mb-5">
+            <ReactMarkdown className=" w-full prose-a:text-coralBlue mb-5 prose-p:mb-3">
               {aboutText}
             </ReactMarkdown>
           </div>

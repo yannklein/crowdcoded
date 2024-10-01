@@ -58,5 +58,9 @@
     "ongoings": "on-going projects",
     "helpMessage1": "Help ",
     "helpMessage2": " fund their project"
+  },
+  "about": {
+    "title": "About us",
+    "text": "We are a couple of web developer living and working in Tokyo. By day, we work for our respective companies, but in our spare time, we transform into freelance developers dedicated to **supporting small businesses that aim to make a positive impact on the world**.  \n  \n**Adriana** is originally from Brazil, she has been living and working in Japan since 2006. Her personal experiences have fueled her passion for social and environmental causes, leading her to collaborate with startups like [Matinno](https://www.matinno.co/en) or Siventh.  \n  \n**Yann** was born in France near the German border, he arrived in Japan in 2010. A passionate maker, he has been actively involved in developing startups in various domains such as VR, EdTech and SocialTech.  \n  \nThe idea behind **Crowd Coded** emerged from our observation that businesses that care for people, that address environmental issues, and try to improve our quality of life are often not highly bankable. They can't always easily spare money for their web presence and related needs.  On the web or elsewhere, we believe that **they need our help to help others better**."
   }
 }
