@@ -3,7 +3,7 @@
     "banner": {
       "projects": "PROJECTS",
       "about": "ABOUT US",
-      "title": "Crowded Code",
+      "title": "Crowd Coded",
       "subtitle1": "People that make the world better are rarely millionaires",
       "subtitle2": "But they very often need a",
       "subtitle3": "website",
@@ -14,7 +14,7 @@
     },
     "featured": {
       "title": "Today’s project to support",
-      "mission": "Crowded Code mission",
+      "mission": "Crowd Coded mission",
       "donate": "Fund",
       "learnMore": "Learn more"
     },
@@ -37,7 +37,7 @@
       "send": "Send"
     }
   },
-  "projectDetails" : {
+  "projectDetails": {
     "menu": {
       "whoTheyAre": "Who they are",
       "howWeMetThem": "How we met them",
