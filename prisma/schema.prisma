@@ -11,8 +11,11 @@ datasource db {
 
 enum Impact {
   ORGANIC
-  ZERO_WASTE
   SUSTAINABLE
+  EDUCATES
+  SOCIAL
+  CLIMATE
+  EQUAL
 }
 
 enum Status {
@@ -21,19 +24,56 @@ enum Status {
   CLOSED
 }
 
+enum Lang {
+  EN
+  JA
+}
+
 model Project {
+  id                    String      @default(cuid()) @id
+  createdAt             DateTime    @default(now()) @map(name: "created_at")
+  updatedAt             DateTime    @updatedAt @map(name: "updated_at")
+  title                 String
+  description           String      @db.Text
+  status                Status
+  goal                  Int
+  owners                String
+  mission               String      @db.Text
+  impacts               Impact[]
+  donations             Donation[]
+  projectTranslations   ProjectTranslation[]
+  @@map(name: "projects")
+}
+
+model ProjectTranslation {
   id            String      @default(cuid()) @id
   createdAt     DateTime    @default(now()) @map(name: "created_at")
   updatedAt     DateTime    @updatedAt @map(name: "updated_at")
   title         String
   description   String      @db.Text
-  status        Status
-  goal          Int
   owners        String
+  lang          Lang
+  meetStory     Json
   mission       String      @db.Text
-  impacts       Impact[]
-  donations     Donation[]
-  @@map(name: "projects")
+  work          String      @db.Text
+  project       Project   @relation(fields: [projectId], references: [id])
+  projectId     String
+  milestones             Milestone[]
+  @@map(name: "project_translations")
+}
+
+model Milestone {
+  id            String      @default(cuid()) @id
+  createdAt     DateTime    @default(now()) @map(name: "created_at")
+  updatedAt     DateTime    @updatedAt @map(name: "updated_at")
+  step_nb       Int
+  date          DateTime?   @db.Date
+  title         String
+  description   String      @db.Text
+  completed     Boolean
+  projectTranslation       ProjectTranslation   @relation(fields: [projectTranslationId], references: [id])
+  projectTranslationId     String
+  @@map(name: "milestones")
 }
 
 model Donation {
