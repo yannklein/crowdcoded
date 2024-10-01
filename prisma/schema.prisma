@@ -40,6 +40,8 @@ model Project {
   owners                String
   mission               String      @db.Text
   impacts               Impact[]
+  owners_picture        String
+  project_picture       String
   donations             Donation[]
   projectTranslations   ProjectTranslation[]
   @@map(name: "projects")
