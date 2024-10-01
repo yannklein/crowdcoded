@@ -20,6 +20,8 @@ export type ProjectProps = {
   impacts: string[];
   ownersPicture?: string;
   projectPicture?: string;
+  gmapsUrl?: string;
+  links?: JsonValue;
   // to be get rid of
   owners: string;
   mission: string;
@@ -33,6 +35,14 @@ export type ProjectProps = {
     meetStory: JsonValue;
     mission: string;
     work: string;
+    milestones?: {
+      id: string;
+      step_nb: number;
+      date: Date;
+      title: string;
+      description: string;
+      completed: boolean;
+    }[];
   }[];
 };
 

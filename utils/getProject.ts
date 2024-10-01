@@ -11,6 +11,13 @@ export const getProject = async (id: string, lang: string) => {
         where: {
           lang: lang.toUpperCase() as Lang
         },
+        include: {
+          milestones: {
+            orderBy: {
+              step_nb: 'asc'
+            }
+          }
+        }
       },
     },
   });
