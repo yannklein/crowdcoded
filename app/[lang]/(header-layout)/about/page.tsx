@@ -25,7 +25,7 @@ const About = async ({ params: { lang }}) => {
 
   return (
     <div>
-      <h1 className="text-8xl text-center my-10">{dict.about.title}</h1>
+      <h1 className="text-4xl md:text-7xl text-center my-10">{dict.about.title}</h1>
       <div className="flex flex-col lg:flex-row mb-10 gap-16 mx-3 sm:mx-16 xl:mx-24 xl:gap-24">
         <div className="lg:w-1/3 flex flex-col">
           <img
