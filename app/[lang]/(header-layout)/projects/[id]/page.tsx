@@ -67,6 +67,7 @@ const ProjectDetails = async ({
               {impactsData.map((impactData) => (
                 <ImpactIcon
                   impact={impactData}
+                  lang={lang}
                   size="4x"
                   key={`${id}-${impactData.text}`}
                 />
@@ -137,6 +138,7 @@ const ProjectDetails = async ({
             {projectLinks?.map((link) => (
               <Link target="_blank" href={link.url}>
                 <ImpactIcon
+                  lang={lang}
                   impact={{ text: link.title, icon: link.icon, color: 'black' }}
                 />
               </Link>
