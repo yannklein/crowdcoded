@@ -28,7 +28,7 @@ const Landing = async ({ params: { lang } }) => {
             </div>
           </div>
           <HowItWorks dict={dict}/>
-          <ImpactfulBusinesses dict={dict}/>
+          <ImpactfulBusinesses dict={dict} lang={lang}/>
           <ContactForm formId={formId} dict={dict}/>
         </main>
       </div>
