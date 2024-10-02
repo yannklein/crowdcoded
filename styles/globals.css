@@ -52,9 +52,9 @@ button {
     @apply py-0 px-0;
   }
   .btn-primary {
-    @apply inline-block text-center text-white bg-coralBlue px-1 rounded font-heading border-2 border-coralBlue text-2xl sm:text-3xl pt-1;
+    @apply inline-block text-center text-white bg-coralBlue px-3 rounded font-heading border-2 border-coralBlue text-2xl sm:text-3xl pt-1;
   }
   .btn-secondary {
-    @apply text-coralBlue bg-white px-1 rounded font-heading border-2 border-coralBlue text-2xl sm:text-3xl pt-1;
+    @apply text-coralBlue bg-white px-3 rounded font-heading border-2 border-coralBlue text-2xl sm:text-3xl pt-1;
   }
 }
