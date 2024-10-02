@@ -76,7 +76,7 @@ const ProjectDetails = async ({
         </div>
         <ProjectDetailsMenu dict={dict} />
         <div className="pb-12 lg:pb-16">
-          <h2 className="text-3xl mb-4" id="who-they-are">
+          <h2 className="text-3xl mb-8" id="who-they-are">
             {dict.projectDetails.menu.whoTheyAre}
           </h2>
           <div className="flex flex-col lg:flex-row gap-3 lg:gap-16">
@@ -92,13 +92,13 @@ const ProjectDetails = async ({
           </div>
         </div>
         <div className="pb-12 lg:pb-16">
-          <h2 className="text-3xl mb-4" id="how-we-met-them">
+          <h2 className="text-3xl mb-8" id="how-we-met-them">
             {dict.projectDetails.menu.howWeMetThem}
           </h2>
           <ProjectCarousel slides={meetStory['story']} />
         </div>
         <div className="pb-12 lg:pb-16">
-          <h2 className="text-3xl mb-4" id="our-mission">
+          <h2 className="text-3xl mb-8" id="our-mission">
             {dict.projectDetails.menu.ourMission}
           </h2>
           <Markdown className="mb-4">{mission}</Markdown>
@@ -114,13 +114,13 @@ const ProjectDetails = async ({
           </div>
         </div>
         <div className="pb-12 lg:pb-16">
-          <h2 className="text-3xl mb-4" id="details-of-the-work">
+          <h2 className="text-3xl mb-8" id="details-of-the-work">
             {dict.projectDetails.menu.detailsOfTheWork}
           </h2>
           {projectLinks && (
             <iframe
               style={{ zoom: 0.5 }}
-              className="w-full lg:w-[800px] h-[400px] object-cover my-3 shadow mb-6"
+              className="w-full lg:w-[800px] h-[400px] object-cover shadow mb-8"
               src={projectLinks[0].url}
               title="Original Website"
             ></iframe>
@@ -130,7 +130,7 @@ const ProjectDetails = async ({
           </ReactMarkdown>
         </div>
         <div className="pb-12 lg:pb-16">
-          <h2 className="text-3xl mb-4" id="links">
+          <h2 className="text-3xl mb-8" id="links">
             {dict.projectDetails.menu.links}
           </h2>
           <div className="flex gap-8">
