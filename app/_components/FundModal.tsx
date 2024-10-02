@@ -37,7 +37,7 @@ const FundModal: React.FC<FundModalProps> = ({
   };
 
   return (
-    <Modal.Root triggerText="Fund">
+    <Modal.Root triggerText={dict.landing.featured.donate}>
       <Modal.Content className="text-center p-8 bg-cream">
         <h1 className="text-5xl mb-4">{dict.landing.featured.mission}</h1>
         <div className="flex flex-col items-center md:flex-row mb-6">
@@ -58,7 +58,7 @@ const FundModal: React.FC<FundModalProps> = ({
         />
         <div className="px-1 md:px-14">
           <h3 className="text-2xl md:text-3xl mb-2">
-            BE PART OF THE PATRONS TEAM
+            {dict.projectDetails.fundingCard.beAPatron}
           </h3>
           <div className="grid grid-cols-2 gap-4 mb-4">
             <button
@@ -105,7 +105,7 @@ const FundModal: React.FC<FundModalProps> = ({
             }
             className="btn-primary w-full"
           >
-            FUND THEM
+            {dict.projectDetails.fundingCard.fundThem}
           </button>
         </div>
       </Modal.Content>
