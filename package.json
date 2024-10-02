@@ -19,6 +19,8 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@prisma/client": "^5.19.1",
+    "@stripe/react-stripe-js": "^2.8.0",
+    "@stripe/stripe-js": "^1.54.2",
     "@vercel/postgres": "^0.10.0",
     "clsx": "^2.1.1",
     "negotiator": "^0.6.3",
@@ -26,6 +28,7 @@
     "react": "^18.0.2",
     "react-dom": "^18.0.2",
     "react-markdown": "8.0.0",
+    "stripe": "^16.12.0",
     "swiper": "^11.1.14",
     "tailwind-merge": "^2.5.2"
   },
