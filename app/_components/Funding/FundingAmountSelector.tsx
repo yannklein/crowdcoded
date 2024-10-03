@@ -1,14 +1,19 @@
 'use client';
 
 import React from 'react';
-import { AmountRadioButton } from './Funding';
-import ButtonLink from './ButtonLink';
+import { useRouter } from 'next/navigation';
+import AmountRadioButton from './AmountRadioButton';
+import { cn } from '@/lib/twMerge';
 
-const FundingAmountSelector = ({ dict }) => {
+export const FundingAmountSelector = ({ dict, className = '' }) => {
+  const router = useRouter();
   const [selectedAmount, setSelectedAmount] = React.useState(5000);
   const [freeInputAmount, setFreeInputAmount] = React.useState(0);
 
-  const handleFreeInputChange = (e) => {
+  const fundingAmount = selectedAmount ? selectedAmount : freeInputAmount || 0;
+  const fundUrl = '/fund?amount=' + fundingAmount;
+
+  const handleFreeInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const amount = Number.parseInt(e.currentTarget.value, 10);
     setFreeInputAmount(amount);
     setSelectedAmount(amount);
@@ -16,7 +21,7 @@ const FundingAmountSelector = ({ dict }) => {
 
   return (
     <div>
-      <div className="hidden lg:grid grid-cols-2 gap-1 mb-3">
+      <div className={cn('hidden lg:grid grid-cols-2 gap-1 mb-3', className)}>
         <AmountRadioButton
           amount={3000}
           selectedAmount={selectedAmount}
@@ -48,11 +53,12 @@ const FundingAmountSelector = ({ dict }) => {
           />
         </div>
       </div>
-      <ButtonLink className="w-full" href={'/'}>
+      <button
+        className="btn-primary w-full "
+        onClick={() => router.push(fundUrl)}
+      >
         {dict.projectDetails.fundingCard.fundThem}
-      </ButtonLink>
+      </button>
     </div>
   );
 };
-
-export default FundingAmountSelector;

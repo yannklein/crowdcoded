@@ -1,7 +1,7 @@
 import React from 'react';
 import { cn } from '@/lib/twMerge';
 
-export const AmountRadioButton = ({
+const AmountRadioButton = ({
   amount,
   selectedAmount,
   setFreeInputAmount,
@@ -25,3 +25,5 @@ export const AmountRadioButton = ({
     </button>
   );
 };
+
+export default AmountRadioButton;

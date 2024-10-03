@@ -1,16 +1,17 @@
-import React from "react";
-import Markdown from "react-markdown";
-import DonationProgress from "./DonationProgress";
-import { ProjectProps } from "@/app/types";
-import FundingAmountSelector from "./FundingAmountSelector";
-import { getDonationsPerProject } from "@/utils/getDonationsPerProject";
+import React, { ReactNode } from 'react';
+import Markdown from 'react-markdown';
+import DonationProgress from '@components/DonationProgress';
+import { ProjectProps } from '@/app/types';
+import { getDonationsPerProject } from '@/utils/getDonationsPerProject';
 
-const FundingCard: React.FC<{ project: ProjectProps; dict: any }> = async ({
-  project,
-  dict,
-}) => {
+export const FundingCard: React.FC<{
+  project: ProjectProps;
+  children: ReactNode;
+  dict: any;
+}> = async ({ project, dict, children }) => {
   const { goal, projectPicture, projectTranslations } = project;
   const { count, amount } = await getDonationsPerProject(project.id);
+
   const { mission } = projectTranslations[0];
 
   return (
@@ -24,17 +25,13 @@ const FundingCard: React.FC<{ project: ProjectProps; dict: any }> = async ({
           src={projectPicture}
           alt="website thumbnail"
         />
-        <Markdown className="mb-4">
-          {mission}
-        </Markdown>
+        <Markdown className="mb-4">{mission}</Markdown>
       </div>
       <DonationProgress goal={goal} amount={amount} count={count} dict={dict} />
       <h3 className="hidden lg:block text-xl lg:text-2xl text-center lg:mb-2">
         {dict.projectDetails.fundingCard.beAPatron}
       </h3>
-      <FundingAmountSelector dict={dict} />
+      {children}
     </div>
   );
 };
-
-export default FundingCard;
