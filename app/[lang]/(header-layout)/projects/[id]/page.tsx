@@ -14,13 +14,15 @@ import { getImpactIcon } from '@/utils/getImpactIcon';
 import { ProjectProps } from '@/app/types';
 
 import ImpactIcon from '@/app/_components/ImpactIcon';
-import FundingCard from '@/app/_components/FundingCard';
+import { Funding } from '@/app/_components/Funding';
+import FundModal from '@/app/_components/FundModal';
 import ProjectDetailsMenu from '@/app/_components/ProjectDetailsMenu';
 import ProjectMilestone from '@/app/_components/ProjectMilestone';
 import ProjectCarousel from '@/app/_components/ProjectCarousel';
 import { getDictionary } from '@/app/[lang]/dictionaries';
 import ReactMarkdown from 'react-markdown';
 import getFormattedDate from '@/utils/getFormattedDate';
+import { getDonationsPerProject } from '@/utils/getDonationsPerProject';
 
 const ProjectDetails = async ({
   params: { id, lang }
@@ -28,10 +30,11 @@ const ProjectDetails = async ({
   params: { id: string; lang: string };
 }) => {
   const project: ProjectProps = await getProject(id, lang);
-  const { impacts, ownersPicture, gmapsUrl, links, projectTranslations } =
+  const { impacts, ownersPicture, gmapsUrl, links, projectTranslations, goal } =
     project;
   const { title, description, owners, meetStory, mission, work, milestones } =
     projectTranslations[0];
+  const { count, amount } = await getDonationsPerProject(project.id);
 
   const projectLinks = project.links && links['links'];
   const icons = {
@@ -146,7 +149,21 @@ const ProjectDetails = async ({
           </div>
         </div>
       </div>
-      <FundingCard project={project} dict={dict} />
+      <Funding.Card project={project} dict={dict}>
+        <div className="hidden lg:block">
+          <Funding.AmountSelector dict={dict} />
+        </div>
+        <div className="block md:hidden">
+          <FundModal
+            count={count}
+            amount={amount}
+            goal={goal}
+            mission={mission}
+            triggerClassName="w-full"
+            dict={dict}
+          />
+        </div>
+      </Funding.Card>
     </div>
   );
 };
