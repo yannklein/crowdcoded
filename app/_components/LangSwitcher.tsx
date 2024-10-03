@@ -1,5 +1,6 @@
 'use client';
 
+import { getDateBasedToken } from '@/utils/getDateBasedToken';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
@@ -21,8 +22,22 @@ const LangSwitcher = () => {
         style={{ display: langShown ? 'flex' : 'none' }}
         className="text-3xl flex-col items-center absolute bottom-0 left-1/2 translate-y-full -translate-x-1/2"
       >
-        <Link href={{ pathname: pathname, query: { lang: 'en', refresher: new Date().toUTCString() } }}>EN</Link>
-        <Link href={{ pathname: pathname, query: { lang: 'ja', refresher: new Date().toUTCString() } }}>JA</Link>
+        <Link
+          href={{
+            pathname: pathname,
+            query: { lang: 'en', refreshToken: getDateBasedToken() }
+          }}
+        >
+          EN
+        </Link>
+        <Link
+          href={{
+            pathname: pathname,
+            query: { lang: 'ja', refreshToken: getDateBasedToken() }
+          }}
+        >
+          JA
+        </Link>
       </div>
     </div>
   );
