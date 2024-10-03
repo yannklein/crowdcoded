@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Markdown from 'react-markdown';
 import { Modal } from './Modal';
 import DonationProgress from './DonationProgress';
 import { Funding } from './Funding';
@@ -35,7 +36,7 @@ const FundModal: React.FC<FundModalProps> = ({
             width={100}
             height={100}
           />
-          <p className="text-left ml-4">{mission}</p>
+          <Markdown className=" text-left ml-4">{mission}</Markdown>
         </div>
         <DonationProgress
           amount={amount}
