@@ -38,7 +38,7 @@ export function middleware(request: NextRequest) {
       // get new locale from params and remove params, add new locale to request cookie
       const newLocale = request.nextUrl.searchParams.get('lang');
       request.nextUrl.searchParams.delete('lang');
-      request.nextUrl.searchParams.delete('refresher');
+      request.nextUrl.searchParams.delete('refreshToken');
       request.cookies.set(cookieName, newLocale);
 
       // Find the current locale
