@@ -8,7 +8,7 @@ type FundModalProps = {
   amount: number;
   goal: number;
   mission: string;
-  triggerClassName: string;
+  triggerClassName?: string;
   dict: any;
 };
 
