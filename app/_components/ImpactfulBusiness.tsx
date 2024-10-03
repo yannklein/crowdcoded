@@ -12,7 +12,7 @@ const categories = [
   "EQUAL",
 ];
 
-const ImpactfulBusinesses = ({ dict }) => {
+const ImpactfulBusinesses = ({ dict, lang }) => {
   const logos = categories.map((category) => getImpactIcon(category));
   return (
     <section className="pt-12 md:pt-28 pb-8 text-center">
@@ -30,8 +30,8 @@ const ImpactfulBusinesses = ({ dict }) => {
       <div className="flex flex-col md:flex-row justify-center gap-14 mb-14">
         {logos.map((icon) => (
           <div key={icon.text} className="flex flex-col items-center">
-            {icon.tooltip ? (
-              <Tooltip message={icon.tooltip}>
+            {icon.tooltip[lang] ? (
+              <Tooltip message={icon.tooltip[lang]}>
                 <div className="text-6xl mb-4" style={{ color: icon.color }}>
                   <FontAwesomeIcon icon={icon.icon} size="lg" />
                 </div>
@@ -47,8 +47,8 @@ const ImpactfulBusinesses = ({ dict }) => {
           </div>
         ))}
       </div>
-      <p className="mt-4 text-sm font-extralight">
-        * hover over each impact to know more
+      <p className="mt-4 mx-8 text-sm font-extralight">
+        {dict.landing.impactfulBusinesses.hover}
       </p>
     </section>
   );

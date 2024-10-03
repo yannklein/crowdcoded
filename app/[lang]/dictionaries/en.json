@@ -4,12 +4,12 @@
       "projects": "PROJECTS",
       "about": "ABOUT US",
       "title": "Crowd Coded",
-      "subtitle1": "People that make the world better are rarely millionaires",
+      "subtitle1": "People that make the world better are rarely millionaires.",
       "subtitle2": "But they very often need a",
-      "subtitle3": "website",
+      "subtitle3": "website.",
       "subtitle4": "",
       "subtitle5": "Support them by",
-      "subtitle6": "funding their web project",
+      "subtitle6": "funding their web project.",
       "subtitle7": "and demultiplying their positive impact"
     },
     "featured": {
@@ -28,7 +28,8 @@
       "title": "We Focus on Impactful Businesses",
       "description1": "We are the first patrons of the impactful businesses we partner with, we decided to give them a bit of us because",
       "description2": "they do an outstanding work in domain we cherish:",
-      "description3": ""
+      "description3": "",
+      "hover": "* hover or tap on each impact to know more"
     },
     "contact": {
       "title": "A Question? Contact Us",
