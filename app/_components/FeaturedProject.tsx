@@ -6,7 +6,7 @@ import { getImpactIcon } from '@/utils/getImpactIcon';
 import DonationProgress from './DonationProgress';
 import ImpactIcon from './ImpactIcon';
 import { ProjectProps } from '../types';
-import SecondaryButton from './SecondaryButton';
+import ButtonLink from './ButtonLink';
 import FundModal from './FundModal';
 import { getDonationsPerProject } from '@/utils/getDonationsPerProject';
 
@@ -66,9 +66,9 @@ const Project: React.FC<{ project: ProjectProps; dict: any }> = async ({
           dict={dict}
         />
         <div className="flex justify-end gap-8">
-          <SecondaryButton href={`/projects/${id}`}>
-            {dict.landing.featured.learnMore}
-          </SecondaryButton>
+          <ButtonLink href={`/projects/${id}`} className="btn-secondary">
+            <p>{dict.landing.featured.learnMore}</p>
+          </ButtonLink>
           <FundModal
             count={count}
             amount={amount}

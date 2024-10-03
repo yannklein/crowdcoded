@@ -1,16 +1,15 @@
-'use client';
-
-import React, { useState } from 'react';
 import Image from 'next/image';
+import Markdown from 'react-markdown';
 import { Modal } from './Modal';
-import { cn } from '@/lib/twMerge';
 import DonationProgress from './DonationProgress';
+import { Funding } from './Funding';
 
 type FundModalProps = {
   count: number;
   amount: number;
   goal: number;
   mission: string;
+  triggerClassName?: string;
   dict: any;
 };
 
@@ -19,26 +18,15 @@ const FundModal: React.FC<FundModalProps> = ({
   amount,
   goal,
   mission,
+  triggerClassName,
   dict
 }) => {
-  const [selectedAmount, setSelectedAmount] = useState<number | string>(3000);
-  const [customAmount, setCustomAmount] = useState<string>('');
-
-  const handleSelectAmount = (amount: number) => {
-    setSelectedAmount(amount);
-    setCustomAmount('');
-  };
-
-  const handleCustomAmountChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setSelectedAmount('');
-    setCustomAmount(event.target.value);
-  };
-
   return (
-    <Modal.Root triggerText={dict.landing.featured.donate}>
-      <Modal.Content className="text-center p-8 bg-cream">
+    <Modal.Root
+      triggerText={dict.projectDetails.fundingCard.fundThem}
+      triggerClassName={triggerClassName}
+    >
+      <Modal.Content className="text-center p-8 bg-cream rounded-md">
         <h1 className="text-5xl mb-4">{dict.landing.featured.mission}</h1>
         <div className="flex flex-col items-center md:flex-row mb-6">
           <Image
@@ -48,7 +36,7 @@ const FundModal: React.FC<FundModalProps> = ({
             width={100}
             height={100}
           />
-          <p className="text-left ml-4">{mission}</p>
+          <Markdown className=" text-left ml-4">{mission}</Markdown>
         </div>
         <DonationProgress
           amount={amount}
@@ -60,53 +48,10 @@ const FundModal: React.FC<FundModalProps> = ({
           <h3 className="text-2xl md:text-3xl mb-2">
             {dict.projectDetails.fundingCard.beAPatron}
           </h3>
-          <div className="grid grid-cols-2 gap-4 mb-4">
-            <button
-              className={cn(
-                `btn-primary ${
-                  selectedAmount === 3000 ? 'opacity-100' : 'opacity-50'
-                }`
-              )}
-              onClick={() => handleSelectAmount(3000)}
-            >
-              ¥3000
-            </button>
-            <button
-              className={cn(
-                `btn-primary ${
-                  selectedAmount === 5000 ? 'opacity-100' : 'opacity-50'
-                }`
-              )}
-              onClick={() => handleSelectAmount(5000)}
-            >
-              ¥5000
-            </button>
-            <button
-              className={cn(
-                `btn-primary ${
-                  selectedAmount === 10000 ? 'opacity-100' : 'opacity-50'
-                }`
-              )}
-              onClick={() => handleSelectAmount(10000)}
-            >
-              ¥10,000
-            </button>
-            <input
-              type="number"
-              placeholder="¥_______"
-              value={customAmount}
-              onChange={handleCustomAmountChange}
-              className="p-3 rounded-md border bg-white"
-            />
-          </div>
-          <button
-            onClick={() =>
-              alert(`You funded: ¥${customAmount || selectedAmount}`)
-            }
-            className="btn-primary w-full"
-          >
-            {dict.projectDetails.fundingCard.fundThem}
-          </button>
+          <Funding.AmountSelector
+            dict={dict}
+            className="grid grid-cols-2 gap-4 mb-3"
+          />
         </div>
       </Modal.Content>
     </Modal.Root>
