@@ -27,6 +27,15 @@ module.exports = {
       boxShadow: {
         default: '0 0 24px 0 rgba(0,0,0,0.3)'
       }
+    },
+    typography: {
+      sm: { // this is for prose class
+        css: {
+          br: {
+            display: 'none',
+          }
+        }
+      }
     }
   },
   plugins: [require('@tailwindcss/typography')]

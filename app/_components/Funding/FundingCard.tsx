@@ -15,8 +15,8 @@ export const FundingCard: React.FC<{
   const { mission } = projectTranslations[0];
 
   return (
-    <div className="p-4 lg:p-8 min-w-100 w-100 lg:min-w-[400px] lg:w-[400px] h-fit sticky top-8 bg-cream rounded-md shadow-[0_0_24px_0_rgba(0,0,0,0.3)]">
-      <div className="hidden lg:block ">
+    <div className="p-4 lg:p-8 z-10 fixed sm:sticky bottom-0 left-0 sm:top-8 w-screen lg:min-w-[400px] lg:w-[400px] h-fit bg-cream rounded-md shadow-default">
+      <div className="hidden lg:block">
         <h2 className="hidden lg:text-3xl mb-4 text-center">
           {dict.projectDetails.fundingCard.title}
         </h2>

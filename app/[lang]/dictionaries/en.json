@@ -5,12 +5,8 @@
       "about": "ABOUT US",
       "title": "Crowd Coded",
       "subtitle1": "People that make the world better are rarely millionaires.",
-      "subtitle2": "But they very often need a",
-      "subtitle3": "website.",
-      "subtitle4": "",
-      "subtitle5": "Support them by",
-      "subtitle6": "funding their web project.",
-      "subtitle7": "and demultiplying their positive impact"
+      "subtitle2": "But they very often need a **website**.",
+      "subtitle3": "Support them by **funding their web project**. and demultiplying their positive impact."
     },
     "featured": {
       "title": "Today’s project to support",
@@ -26,9 +22,7 @@
     },
     "impactfulBusinesses": {
       "title": "We Focus on Impactful Businesses",
-      "description1": "We are the first patrons of the impactful businesses we partner with, we decided to give them a bit of us because",
-      "description2": "they do an outstanding work in domain we cherish:",
-      "description3": "",
+      "description": "We are the first patrons of the impactful businesses we partner with.  \nWe decided to give them a bit of us because **they do an outstanding work in domain we cherish:**",
       "hover": "* hover or tap on each impact to know more"
     },
     "contact": {

@@ -26,7 +26,7 @@ const CheckoutStripe = ({ amount }: { amount: number }) => {
       });
       const data = await response.json();
       setClientSecret(data.client_secret);
-      console.log(data);
+      // console.log(data);
     };
     fetchClientSecret();
   }, []);

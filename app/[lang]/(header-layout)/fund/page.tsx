@@ -19,7 +19,7 @@ export default function FundPage({
   searchParams: { amount: string };
 }) {
   const amountInt = parseInt(amount || '0');
-  console.log('The converted amount', convertSubCurrency(amountInt));
+  // console.log('The converted amount', convertSubCurrency(amountInt));
 
   return (
     <>

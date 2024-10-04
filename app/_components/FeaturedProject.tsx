@@ -65,7 +65,7 @@ const Project: React.FC<{ project: ProjectProps; dict: any }> = async ({
           amount={amount}
           dict={dict}
         />
-        <div className="flex justify-end gap-8">
+        <div className="flex justify-end gap-4">
           <ButtonLink href={`/projects/${id}`} className="btn-secondary">
             <p>{dict.landing.featured.learnMore}</p>
           </ButtonLink>

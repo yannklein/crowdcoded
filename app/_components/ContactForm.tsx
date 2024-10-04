@@ -15,7 +15,7 @@ const ContactForm = ({ formId, dict }: ContactFormProps) => {
 
   return (
     <section className="bg-lightBlue py-20 text-center">
-      <h2 className="text-3xl md:text-5xl font-heading mb-4">
+      <h2 className="landing-header">
         {dict.landing.contact.title}
       </h2>
       {state.succeeded ? (

@@ -50,11 +50,9 @@ const ProjectDetails = async ({
   const impactsData = impacts.map((impact: string) => getImpactIcon(impact));
   const dict = await getDictionary(lang);
 
-  console.log(milestones[0].date);
-
   return (
-    <div className="h-[92vh] flex-col flex p-2 lg:h-auto lg:p-8 lg:gap-8 lg:flex-row">
-      <div className="overflow-scroll flex-shrink min-w-0 lg:flex-grow lg:h-auto">
+    <div className="py-20 px-4 md:px-8 flex-col flex lg:h-auto lg:gap-8 lg:flex-row">
+      <div className="flex-shrink min-w-0 lg:flex-grow lg:h-auto">
         <div className="pb-12 lg:pb-0 flex flex-col-reverse gap-3 lg:flex-row lg:gap-8">
           <img
             className="lg:w-1/3 h-[260px] object-cover object-[50%_20%] rounded-md"

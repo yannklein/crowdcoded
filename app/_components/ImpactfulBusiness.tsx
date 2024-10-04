@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getImpactIcon } from "@/utils/getImpactIcon";
 import Tooltip from "./Tooltip";
+import ReactMarkdown from "react-markdown";
 
 const categories = [
   "ORGANIC",
@@ -15,17 +16,20 @@ const categories = [
 const ImpactfulBusinesses = ({ dict, lang }) => {
   const logos = categories.map((category) => getImpactIcon(category));
   return (
-    <section className="pt-12 md:pt-28 pb-8 text-center">
-      <h2 className="text-4xl md:text-5xl font-heading mb-4">
+    <section className="landing-section text-center">
+      <h2 className="landing-header">
         {dict.landing.impactfulBusinesses.title}
       </h2>
       <div className="flex justify-center mb-14">
-        <p className="text-xl md:text-2xl px-8 md:px-28 md:w-3/4 mb-2 md:mb-8 font-light">
+        <ReactMarkdown className="text-xl md:text-2xl font-light prose-strong:text-coralBlue prose-strong:font-light">
+          {dict.landing.impactfulBusinesses.description}
+        </ReactMarkdown>
+        {/* <p className="text-xl md:text-2xl font-light">
           {dict.landing.impactfulBusinesses.description1}{" "}
           <span className="text-coralBlue">
           {dict.landing.impactfulBusinesses.description2}
           </span>{dict.landing.impactfulBusinesses.description3}
-        </p>
+        </p> */}
       </div>
       <div className="flex flex-col md:flex-row justify-center gap-14 mb-14">
         {logos.map((icon) => (
