@@ -20,9 +20,7 @@ const About = async ({ params: { lang }}) => {
   ]
   const dict = await getDictionary(lang);
   const aboutText = dict.about.text
-  console.log(aboutText);
   
-
   return (
     <div>
       <h1 className="text-4xl md:text-7xl text-center my-10">{dict.about.title}</h1>

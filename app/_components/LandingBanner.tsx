@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import LangSwitcher from './LangSwitcher';
+import ReactMarkdown from 'react-markdown';
 
 const LandingBanner = ({ dict }) => {
   return (
-    <div className="relative bg-lightBlue pb-20 pt-32 sm:pt-24 flex flex-col items-center justify-center text-center drop-shadow-2xl ">
+    <section className="relative bg-lightBlue pb-16 lg:pb-24 pt-32 sm:pt-24 flex flex-col items-center justify-center text-center drop-shadow-2xl ">
       <div className="absolute top-4 sm:right-9 flex space-x-6 items-center font-heading">
         <LangSwitcher />
         <Link href="projects" className="text-3xl">
@@ -26,24 +27,18 @@ const LandingBanner = ({ dict }) => {
           {dict.landing.banner.title}
         </h1>
       </div>
-      <div className="mt-4 text-xs md:text-2xl px-4 lg:px-0 font-light">
-        <p className='mb-2 sm:mb-0'>{dict.landing.banner.subtitle1}</p>
-        <p className='mb-2 sm:mb-0'>
-          {dict.landing.banner.subtitle2}{' '}
-          <span className="text-coralBlue">
-            {dict.landing.banner.subtitle3}
-          </span>
-          {dict.landing.banner.subtitle4}
-        </p>
-        <p className='mb-2 sm:mb-0'>
-          {dict.landing.banner.subtitle5}{' '}
-          <span className="text-coralBlue">
-            {dict.landing.banner.subtitle6}
-          </span>{' '}
-          {dict.landing.banner.subtitle7}
-        </p>
+      <div className="mt-12 text-md md:text-2xl px-4 lg:px-0 font-light">
+        <ReactMarkdown className='prose sm:prose-sm'>
+          {dict.landing.banner.subtitle1}
+        </ReactMarkdown>
+        <ReactMarkdown className='prose-strong:text-coralBlue prose-strong:font-light'>
+          {dict.landing.banner.subtitle2}
+        </ReactMarkdown>
+        <ReactMarkdown className='prose-strong:text-coralBlue prose-strong:font-light'>
+          {dict.landing.banner.subtitle3}
+        </ReactMarkdown>
       </div>
-    </div>
+    </section>
   );
 };
 
