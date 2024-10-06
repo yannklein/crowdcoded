@@ -8,7 +8,7 @@ const AmountRadioButton = ({
   setSelectedAmount
 }) => {
   const handleChange = (e) => {
-    setFreeInputAmount(0);
+    setFreeInputAmount("");
     setSelectedAmount(amount);
   };
 

@@ -8,13 +8,20 @@ import { cn } from '@/lib/twMerge';
 export const FundingAmountSelector = ({ dict, className = '' }) => {
   const router = useRouter();
   const [selectedAmount, setSelectedAmount] = React.useState(5000);
-  const [freeInputAmount, setFreeInputAmount] = React.useState(0);
+  const [freeInputAmount, setFreeInputAmount] = React.useState(null);
 
   const fundingAmount = selectedAmount ? selectedAmount : freeInputAmount || 0;
   const fundUrl = '/fund?amount=' + fundingAmount;
 
   const handleFreeInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const amount = Number.parseInt(e.currentTarget.value, 10);
+    let amount = Number.parseInt(e.currentTarget.value, 10);
+    setFreeInputAmount(amount);
+    setSelectedAmount(amount);
+  };
+
+  const handleFreeInputRounding = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let amount = Number.parseInt(e.currentTarget.value, 10);
+    amount = amount < 0 ? 1000 : Math.round(amount / 1000) * 1000 ;
     setFreeInputAmount(amount);
     setSelectedAmount(amount);
   };
@@ -23,7 +30,7 @@ export const FundingAmountSelector = ({ dict, className = '' }) => {
     <div>
       <div className={cn('hidden lg:grid grid-cols-2 gap-1 mb-3', className)}>
         <AmountRadioButton
-          amount={3000}
+          amount={2000}
           selectedAmount={selectedAmount}
           setFreeInputAmount={setFreeInputAmount}
           setSelectedAmount={setSelectedAmount}
@@ -40,7 +47,7 @@ export const FundingAmountSelector = ({ dict, className = '' }) => {
           setFreeInputAmount={setFreeInputAmount}
           setSelectedAmount={setSelectedAmount}
         />
-        <div className=" flex px-1 rounded font-heading border-2 border-coralBlue text-xl lg:text-3xl bg-white">
+        <div className=" flex items-center px-1 rounded font-heading border-2 border-coralBlue text-xl lg:text-3xl bg-white">
           <span className="px-1">¥</span>
           <input
             type="number"
@@ -49,6 +56,7 @@ export const FundingAmountSelector = ({ dict, className = '' }) => {
             className="w-full focus:outline-none text-xl lg:text-3xl"
             onInput={handleFreeInputChange}
             onFocus={handleFreeInputChange}
+            onBlur={handleFreeInputRounding}
             value={freeInputAmount}
           />
         </div>

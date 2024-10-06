@@ -54,7 +54,7 @@ export const ModalRoot: React.FC<ModalProps> = ({
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div
             ref={modalRef}
-            className="rounded-lg w-full max-w-3xl shadow-lg relative"
+            className="rounded-lg p-2 w-full max-w-3xl shadow-lg relative"
           >
             {children}
           </div>

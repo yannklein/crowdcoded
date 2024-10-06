@@ -70,10 +70,7 @@ const Project: React.FC<{ project: ProjectProps; dict: any }> = async ({
             <p>{dict.landing.featured.learnMore}</p>
           </ButtonLink>
           <FundModal
-            count={count}
-            amount={amount}
-            goal={goal}
-            mission={mission}
+            project={project}
             dict={dict}
           />
         </div>
