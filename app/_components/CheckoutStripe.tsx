@@ -8,12 +8,14 @@ import {
 } from '@stripe/react-stripe-js';
 import { convertSubCurrency } from '@/lib/convertSubCurrency';
 
-const CheckoutStripe = ({ amount }: { amount: number }) => {
+const CheckoutStripe = ({ amount, projectId, projectName }: { amount: number, projectId: string, projectName: string }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [errorMessages, setErrorMessages] = useState<string>();
   const [clientSecret, setClientSecret] = useState('');
   const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState('');
+  const [donator, setDonator] = useState('');
 
   useEffect(() => {
     const fetchClientSecret = async () => {
@@ -45,12 +47,12 @@ const CheckoutStripe = ({ amount }: { amount: number }) => {
       setLoading(false);
       return;
     }
-
+    
     const { error } = await stripe.confirmPayment({
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `http://localhost:3000/payment-success?amount=${amount}`
+        return_url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/send-confirmation?amount=${amount}&to=${email}&name=${donator}&projectId=${projectId}&projectName=${projectName}`
       }
     });
 
@@ -70,8 +72,16 @@ const CheckoutStripe = ({ amount }: { amount: number }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-cream p-12 w-3/4 mx-auto rounded-md my-10"
+      className="bg-cream p-4 sm:p-12 w-3/4 mx-auto rounded-md my-10"
     >
+      <div className="mb-3">
+        <label htmlFor="email">Your e-mail</label>
+        <input value={email} onChange={(e) => setEmail(e.target.value)} id="email" className="p-2 w-full" type="email" name="email" placeholder="adriana@crowdcoded.org"/>
+      </div>
+      <div className="mb-3">
+        <label htmlFor="donator">Your name (optional)</label>
+        <input value={donator} onChange={(e) => setDonator(e.target.value)} id="donator" className="p-2 w-full" type="text" name="donator" placeholder="Adriana Ito" />
+      </div>
       {clientSecret && <PaymentElement />}
       <button
         type="submit"
