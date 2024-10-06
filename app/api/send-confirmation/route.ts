@@ -18,7 +18,7 @@ export async function GET(req: NextRequest) {
       <img height="80" src="https://www.crowdcoded.org/logo.png" alt="crowd coded logo">
       <h1>CROWD CODED</h1>
     </div>
-    <p>Dear ${name},</p>
+    <p>Hi ${name ? name : "there"},</p>
     <p>
       Thank you for support ${projectName} project with your donation of ${amount}!<br/>
       You can now check your positive impact on the <a style="text-decoration: none; color: #55A9BB" href="https://www.crowdcoded.org/en/projects/${projectId}">project funding status<a/> on our website.<br/>
