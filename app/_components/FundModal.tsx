@@ -3,8 +3,10 @@ import Markdown from 'react-markdown';
 import { Modal } from './Modal';
 import DonationProgress from './DonationProgress';
 import { Funding } from './Funding';
+import { ProjectProps } from '../types';
 
 type FundModalProps = {
+  project: ProjectProps;
   count: number;
   amount: number;
   goal: number;
@@ -14,6 +16,7 @@ type FundModalProps = {
 };
 
 const FundModal: React.FC<FundModalProps> = ({
+  project,
   count,
   amount,
   goal,
@@ -51,6 +54,7 @@ const FundModal: React.FC<FundModalProps> = ({
           <Funding.AmountSelector
             dict={dict}
             className="grid grid-cols-2 gap-4 mb-3"
+            project={project}
           />
         </div>
       </Modal.Content>
