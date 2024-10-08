@@ -42,6 +42,7 @@ const FundModal: React.FC<FundModalProps> = ({
         </div>
         <Funding.AmountSelector
           dict={dict}
+          project={project}
           className="grid grid-cols-2 gap-4 mb-3"
         />
       </Modal.Content>
