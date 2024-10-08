@@ -13,8 +13,6 @@ export type ImpactProps = {
 export type ProjectProps = {
   // from project table
   id: string;
-  title: string;
-  description: string;
   status: string;
   goal: number;
   impacts: string[];
@@ -22,9 +20,6 @@ export type ProjectProps = {
   projectPicture?: string;
   gmapsUrl?: string;
   links?: JsonValue;
-  // to be get rid of
-  owners: string;
-  mission: string;
   // from project_translations table
   projectTranslations: { 
     id: string;
@@ -37,7 +32,7 @@ export type ProjectProps = {
     work: string;
     milestones?: {
       id: string;
-      step_nb: number;
+      stepNb: number;
       date: Date;
       title: string;
       description: string;
