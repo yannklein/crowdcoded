@@ -14,7 +14,7 @@ export const getProject = async (id: string, lang: string) => {
         include: {
           milestones: {
             orderBy: {
-              step_nb: 'asc'
+              stepNb: 'asc'
             }
           }
         }

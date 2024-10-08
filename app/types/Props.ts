@@ -37,7 +37,7 @@ export type ProjectProps = {
     work: string;
     milestones?: {
       id: string;
-      step_nb: number;
+      stepNb: number;
       date: Date;
       title: string;
       description: string;
