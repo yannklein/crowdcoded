@@ -14,9 +14,9 @@ if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY == undefined) {
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 export default function FundPage({
-  searchParams: { amount }
+  searchParams: { amount, id, title }
 }: {
-  searchParams: { amount: string };
+  searchParams: { amount: string, id: string, title: string };
 }) {
   const amountInt = parseInt(amount || '0');
   // console.log('The converted amount', convertSubCurrency(amountInt));
@@ -34,7 +34,7 @@ export default function FundPage({
           currency: 'jpy'
         }}
       >
-        <CheckoutStripe amount={amountInt} />
+        <CheckoutStripe amount={amountInt} projectId={id} projectName={title} />
         {/* <CompletePayment /> */}
       </Elements>
     </>

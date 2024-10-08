@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown';
 
 type FundModalProps = {
   project: ProjectProps;
+
   triggerClassName?: string;
   dict: any;
 };

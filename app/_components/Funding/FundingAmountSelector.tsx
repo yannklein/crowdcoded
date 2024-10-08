@@ -5,13 +5,14 @@ import { useRouter } from 'next/navigation';
 import AmountRadioButton from './AmountRadioButton';
 import { cn } from '@/lib/twMerge';
 
-export const FundingAmountSelector = ({ dict, className = '' }) => {
+export const FundingAmountSelector = ({ dict, project, className = '' }) => {
+  const { id, title } = project;
   const router = useRouter();
   const [selectedAmount, setSelectedAmount] = React.useState(5000);
   const [freeInputAmount, setFreeInputAmount] = React.useState(null);
 
   const fundingAmount = selectedAmount ? selectedAmount : freeInputAmount || 0;
-  const fundUrl = '/fund?amount=' + fundingAmount;
+  const fundUrl = `/fund?amount=${fundingAmount}&id=${id}&title=${title}`;
 
   const handleFreeInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let amount = Number.parseInt(e.currentTarget.value, 10);
