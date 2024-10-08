@@ -33,16 +33,12 @@ model Project {
   id                    String      @default(cuid()) @id
   createdAt             DateTime    @default(now()) @map(name: "created_at")
   updatedAt             DateTime    @updatedAt @map(name: "updated_at")
-  title                 String
-  description           String      @db.Text
   status                Status
   goal                  Int
-  owners                String
-  mission               String      @db.Text
   impacts               Impact[]
   ownersPicture         String?
   projectPicture        String?
-  gmapsUrl             String?
+  gmapsUrl              String?
   links                 Json?
   donations             Donation[]
   projectTranslations   ProjectTranslation[]
@@ -70,7 +66,7 @@ model Milestone {
   id            String      @default(cuid()) @id
   createdAt     DateTime    @default(now()) @map(name: "created_at")
   updatedAt     DateTime    @updatedAt @map(name: "updated_at")
-  step_nb       Int
+  stepNb        Int
   date          DateTime?   @db.Date
   title         String
   description   String      @db.Text
