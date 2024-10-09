@@ -14,7 +14,7 @@ const Header: React.FC = () => {
 
   return (
     <nav>
-      <div className={`flex items-center justify-center md:justify-between drop-shadow-2xl bg-cream w-full py-3 px-5 font-heading`}>
+      <div className={`flex items-center justify-center md:justify-between drop-shadow-2xl bg-cream w-full py-3 px-5 font-heading gap-3`}>
         <Link href="/" className={`flex lg:gap-3 items-center`} data-active={isActive("/")}>
           <Image
               className="w-12 h-12 lg:w-24 lg:h-24"
