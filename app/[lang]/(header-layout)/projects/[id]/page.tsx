@@ -151,7 +151,7 @@ const ProjectDetails = async ({
         <div className="hidden lg:block">
           <Funding.AmountSelector dict={dict} project={project} />
         </div>
-        <div className="block md:hidden">
+        <div className="block lg:hidden">
           <FundModal
             project={project}
             count={count}
