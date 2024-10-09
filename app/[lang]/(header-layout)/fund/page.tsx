@@ -24,7 +24,7 @@ export default function FundPage({
   return (
     <>
       <div>
-        <h1>Fund : {amount}</h1>
+        <h1 className="text-4xl md:text-6xl text-center my-10">One step away from <em>(positive)</em> impact</h1>
       </div>
       <Elements
         stripe={stripePromise}

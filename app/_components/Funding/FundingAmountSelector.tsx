@@ -6,7 +6,8 @@ import AmountRadioButton from './AmountRadioButton';
 import { cn } from '@/lib/twMerge';
 
 export const FundingAmountSelector = ({ dict, project, className = '' }) => {
-  const { id, title } = project;
+  const { id, projectTranslations } = project;
+  const { title } = projectTranslations[0];
   const router = useRouter();
   const [selectedAmount, setSelectedAmount] = React.useState(5000);
   const [freeInputAmount, setFreeInputAmount] = React.useState(0);
