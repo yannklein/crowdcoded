@@ -46,6 +46,7 @@ export type DonationDTOProps = {
   email: string;
   amount: number;
   projectId: string;
+  showDonator: boolean;
 }
 
 // ContactForm component

@@ -48,6 +48,7 @@ export async function GET(req: NextRequest) {
       email: to, 
       name: name, 
       projectId: projectId, 
+      showDonator: showDonator === 'true'
     });
     console.log(donation);
     
