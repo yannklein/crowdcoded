@@ -3,7 +3,7 @@ import React from 'react';
 import Project from '@/app/_components/Project';
 import { ProjectProps } from '@/app/types/Props';
 import { getProjects } from '@/utils/getProjects';
-import { getDictionary } from '../../dictionaries';
+import { getDictionary } from '@/app/[lang]/dictionaries';
 
 const ProjectsIndex = async ({ params: { lang }}: { params: { lang: string } }) => {
   const dict = await getDictionary(lang);

@@ -5,7 +5,7 @@ import LandingBanner from '@components/LandingBanner';
 import HowItWorks from '@components/HowItWorks';
 import ImpactfulBusinesses from '@components/ImpactfulBusiness';
 import ContactForm from '@components/ContactForm';
-import { getDictionary } from './dictionaries';
+import { getDictionary } from '@/app/[lang]/dictionaries';
 import ReactMarkdown from 'react-markdown';
 
 const Landing = async ({ params: { lang } }) => {
