@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAward } from '@fortawesome/free-solid-svg-icons';
 
 
-const FromStripe = ({
+const FormStripe = ({
   dict,
   amount,
   projectId,
@@ -29,7 +29,7 @@ const FromStripe = ({
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [donator, setDonator] = useState('');
-  const [showDonator, setShowDonator] = useState('');
+  const [showDonator, setShowDonator] = useState(false);
 
   useEffect(() => {
     const fetchClientSecret = async () => {
@@ -66,7 +66,7 @@ const FromStripe = ({
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/send-confirmation?amount=${amount}&to=${email}&name=${donator}&projectId=${projectId}&projectName=${projectName}`
+        return_url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/send-confirmation?amount=${amount}&to=${email}&name=${donator}&projectId=${projectId}&projectName=${projectName}&showDonator=${showDonator}`
       }
     });
 
@@ -121,8 +121,8 @@ const FromStripe = ({
                 type="checkbox"
                 id="show-donator"
                 className="h-7 w-8 accent-coralBlue shadow"
-                value={showDonator}
-                onChange={(e) => setShowDonator(e.target.value)}
+                checked={showDonator}
+                onChange={(e) => setShowDonator(e.target.checked)}
               />
               <label
                 htmlFor="show-donator"
@@ -159,4 +159,4 @@ const FromStripe = ({
   );
 };
 
-export default FromStripe;
+export default FormStripe;

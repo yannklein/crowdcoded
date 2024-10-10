@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
     projectName: req.nextUrl.searchParams.get('projectName'),
     showDonator: req.nextUrl.searchParams.get('showDonator')
   };
-
+  
   const htmlContent = `
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,15 +43,15 @@ export async function GET(req: NextRequest) {
   try {
 
     // create donation in the DB
-    const donation = await postDonation({ 
+    // const donation = 
+    await postDonation({ 
       amount: parseInt(amount), 
       email: to, 
       name: name, 
       projectId: projectId, 
       showDonator: showDonator === 'true'
     });
-    console.log(donation);
-    
+    // console.log(donation);
 
     // send e-mail (only in production)
     if (process.env.NODE_ENV === 'production') {
