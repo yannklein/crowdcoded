@@ -2,12 +2,13 @@ import sendgrid from '@sendgrid/mail';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(req: NextRequest) {
-  const { to, name, amount, projectId, projectName } = {
+  const { to, name, amount, projectId, projectName, showDonator } = {
     to: req.nextUrl.searchParams.get('to'),
     name: req.nextUrl.searchParams.get('name'),
     amount: req.nextUrl.searchParams.get('amount'),
     projectId: req.nextUrl.searchParams.get('projectId'),
-    projectName: req.nextUrl.searchParams.get('projectName')
+    projectName: req.nextUrl.searchParams.get('projectName'),
+    showDonator: req.nextUrl.searchParams.get('showDonator')
   };
   const htmlContent = `
     <link rel="preconnect" href="https://fonts.googleapis.com">
