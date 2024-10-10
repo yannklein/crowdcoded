@@ -1,3 +1,4 @@
+import { postDonation } from '@/utils/postDonation';
 import sendgrid from '@sendgrid/mail';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -10,6 +11,7 @@ export async function GET(req: NextRequest) {
     projectName: req.nextUrl.searchParams.get('projectName'),
     showDonator: req.nextUrl.searchParams.get('showDonator')
   };
+
   const htmlContent = `
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,6 +30,7 @@ export async function GET(req: NextRequest) {
     <p>Yann and Adriana from <a style="text-decoration: none; color: #55A9BB" href="https://www.crowdcoded.org/">Crowd Coded</a></p>
     </div>
   `;
+
   const msg = {
     to: to,
     from: 'yann.klein@me.com',
@@ -36,19 +39,32 @@ export async function GET(req: NextRequest) {
   };
 
   sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
+
   try {
-    // don't send e-mail if development environment
+
+    // create donation in the DB
+    const donation = await postDonation({ 
+      amount: parseInt(amount), 
+      email: to, 
+      name: name, 
+      projectId: projectId, 
+    });
+    console.log(donation);
+    
+
+    // send e-mail (only in production)
     if (process.env.NODE_ENV === 'production') {
       await sendgrid.send(msg);
     } else {
       console.log("Message sent! (actual e-mailing disabled in development)", msg);
     }
+
     return NextResponse.redirect(
       `${process.env.NEXT_PUBLIC_WEBSITE_URL}/payment-success?amount=${amount}&to=${to}&name=${name}`
     );
   } catch (error) {
     return NextResponse.redirect(
-      `${process.env.NEXT_PUBLIC_WEBSITE_URL}/payment-success?amount=${amount}&to=${to}&name=${name}error=${error.message}`
+      `${process.env.NEXT_PUBLIC_WEBSITE_URL}/payment-success?amount=${amount}&to=${to}&name=${name}&error=${error.message}`
     );
   }
 }

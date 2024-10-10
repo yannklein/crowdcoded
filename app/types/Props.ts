@@ -41,6 +41,13 @@ export type ProjectProps = {
   }[];
 };
 
+export type DonationDTOProps = {
+  name?: string;
+  email: string;
+  amount: number;
+  projectId: string;
+}
+
 // ContactForm component
 export type ContactFormProps = {
   formId: string;

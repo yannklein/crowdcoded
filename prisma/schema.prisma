@@ -80,8 +80,8 @@ model Donation {
   id            String      @default(cuid()) @id
   createdAt     DateTime    @default(now()) @map(name: "created_at")
   updatedAt     DateTime    @updatedAt @map(name: "updated_at")
-  name          String
-  email         String      @unique
+  name          String?
+  email         String      
   amount        Int
   project       Project   @relation(fields: [projectId], references: [id])
   projectId     String
