@@ -22,7 +22,6 @@ import ProjectCarousel from '@/app/_components/ProjectCarousel';
 import { getDictionary } from '@/app/[lang]/dictionaries';
 import ReactMarkdown from 'react-markdown';
 import getFormattedDate from '@/utils/getFormattedDate';
-import { getDonationsPerProject } from '@/utils/getDonationsPerProject';
 
 const ProjectDetails = async ({
   params: { id, lang }
@@ -34,7 +33,6 @@ const ProjectDetails = async ({
     project;
   const { title, description, owners, meetStory, mission, work, milestones } =
     projectTranslations[0];
-  const { count, amount } = await getDonationsPerProject(project.id);
 
   const projectLinks = project.links && links['links'];
   const icons = {
@@ -154,10 +152,6 @@ const ProjectDetails = async ({
         <div className="block md:hidden">
           <FundModal
             project={project}
-            count={count}
-            amount={amount}
-            goal={goal}
-            mission={mission}
             triggerClassName="w-full"
             dict={dict}
           />

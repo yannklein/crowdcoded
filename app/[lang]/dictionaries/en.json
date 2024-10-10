@@ -32,6 +32,11 @@
       "send": "Send"
     }
   },
+  "fundModal": {
+    "benefitTitle": "What's in it for you?",
+    "benefitDescription": "🪙 Funding this project will bring you **no benefit**, no interest, not even your money back.  \n🤝 On the other hand, it will make you part of **those who change our society** for the better.  \n✅ If you recognize yourself in that higher goal, feel free to **fund the project**.",
+    "donatorNaming": "🏅 Additionally, you will be recognized as a supporter of the project on Crowded Coded and on  website, if you wish to."
+  },
   "projectDetails": {
     "menu": {
       "whoTheyAre": "Who they are",

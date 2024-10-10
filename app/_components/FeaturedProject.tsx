@@ -71,10 +71,6 @@ const Project: React.FC<{ project: ProjectProps; dict: any }> = async ({
           </ButtonLink>
           <FundModal
             project={project}
-            count={count}
-            amount={amount}
-            goal={goal}
-            mission={mission}
             dict={dict}
           />
         </div>
