@@ -24,12 +24,6 @@ const ImpactfulBusinesses = ({ dict, lang }) => {
         <ReactMarkdown className="text-xl md:text-2xl font-light prose-strong:text-coralBlue prose-strong:font-light">
           {dict.landing.impactfulBusinesses.description}
         </ReactMarkdown>
-        {/* <p className="text-xl md:text-2xl font-light">
-          {dict.landing.impactfulBusinesses.description1}{" "}
-          <span className="text-coralBlue">
-          {dict.landing.impactfulBusinesses.description2}
-          </span>{dict.landing.impactfulBusinesses.description3}
-        </p> */}
       </div>
       <div className="flex flex-col md:flex-row justify-center gap-14 mb-14">
         {logos.map((icon) => (

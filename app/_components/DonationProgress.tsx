@@ -2,24 +2,29 @@
 
 import React from 'react';
 import { cn } from '@/lib/twMerge';
+import Tooltip from './Tooltip';
 
 const DonationProgress: React.FC<{
+  donators: string[];
   goal: number;
   count: number;
   amount: number;
   dict: any;
-}> = ({ goal, count, amount, dict }) => {
+}> = async ({ donators, goal, count, amount, dict }) => {
   const progressPct = Math.round((amount / goal) * 100);
   const classComputed =
     'relative rounded text-center font-heading text-xl bg-white w-full h-8';
+  const sponsorsSoFar = `Among others, the project has been supported by 🎉: **${donators.join(', ')}**`;
 
   return (
     <div className="pb-2">
-      <div className="flex justify-between font-heading items-center">
-        <h3 className="text-md lg:text-md">
-          {count} {dict.projectDetails.fundingCard.sponsorsSoFar}
-        </h3>
-        <p className="text-sm lg:text-md text-coralBlue">
+      <div className="flex justify-between items-center">
+        <Tooltip message={sponsorsSoFar}>
+          <h3 className="text-md lg:text-md font-heading">
+            {count} {dict.projectDetails.fundingCard.sponsorsSoFar}
+          </h3>
+        </Tooltip>
+        <p className="text-sm lg:text-md text-coralBlue font-heading">
           ¥{amount} {dict.projectDetails.fundingCard.outOf} ¥{goal}
         </p>
       </div>
@@ -36,3 +41,4 @@ const DonationProgress: React.FC<{
 };
 
 export default DonationProgress;
+

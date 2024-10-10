@@ -9,6 +9,7 @@ import { ProjectProps } from '../types';
 import ButtonLink from './ButtonLink';
 import FundModal from './FundModal';
 import { getDonationsPerProject } from '@/utils/getDonationsPerProject';
+import { getProjectDonators } from '@/utils/getProjectDonators';
 
 const Project: React.FC<{ project: ProjectProps; dict: any }> = async ({
   project,
@@ -17,6 +18,7 @@ const Project: React.FC<{ project: ProjectProps; dict: any }> = async ({
   const { id, impacts, goal, projectTranslations } = project;
   const { owners, title, description, mission, lang } = projectTranslations[0];
   const { count, amount } = await getDonationsPerProject(project.id);
+  const donators = await getProjectDonators(project.id);
   const impactsData = impacts.map((impact: string) => getImpactIcon(impact));
   const descriptionLength = {
     EN: 300,
@@ -60,6 +62,7 @@ const Project: React.FC<{ project: ProjectProps; dict: any }> = async ({
           <ReactMarkdown className="text-justify">{mission}</ReactMarkdown>
         </div>
         <DonationProgress
+          donators={donators}
           goal={goal}
           count={count}
           amount={amount}
