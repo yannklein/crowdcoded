@@ -26,6 +26,7 @@ const ImpactIcon: React.FC<{
             icon={impact.icon}
             size={size || '3x'}
           />
+          <small>{impact.text}</small>
         </Tooltip>
       ) : (
         <>
@@ -39,9 +40,9 @@ const ImpactIcon: React.FC<{
             icon={impact.icon}
             size={size || '3x'}
           />
+          <small>{impact.text}</small>
         </>
       )}
-      <small>{impact.text}</small>
     </div>
   );
 };

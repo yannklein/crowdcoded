@@ -9,7 +9,7 @@ const Tooltip = ({ message, children }: TooltipProps) => {
 
   return (
     <div
-      className="sm:relative flex flex-col items-center group"
+      className="sm:relative flex flex-col items-center group cursor-pointer"
       onMouseEnter={() => setIsVisible(true)}
       onMouseLeave={() => setIsVisible(false)}
     >
@@ -17,7 +17,7 @@ const Tooltip = ({ message, children }: TooltipProps) => {
       {isVisible && (
         <>
           <div onClick={() => setIsVisible(false)} className="sm:hidden fixed w-screen h-screen bg-black opacity-70 top-0 left-0"></div>
-          <div className="z-10 min-w-[80vw] sm:min-w-[260px] fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 sm:absolute sm:translate-x-0 sm:translate-y-0 sm:top-28 sm:left-[inherit] p-8 sm:p-4 bg-lightBlue flex flex-col items-center justify-center shadow-lg rounded-md h-fit">
+          <div className="z-10 min-w-[80vw] sm:min-w-[260px] fixed max-sm:top-1/2 left-1/2 max-sm:-translate-y-1/2 max-sm:-translate-x-1/2 sm:absolute sm:bottom-0 sm:left-[inherit] sm:translate-y-full p-8 sm:p-4 bg-lightBlue flex flex-col items-center justify-center shadow-lg rounded-md h-fit">
             <ReactMarkdown className="text-sm text-black">
               {message}
             </ReactMarkdown>

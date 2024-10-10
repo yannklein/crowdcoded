@@ -1,16 +1,16 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getImpactIcon } from "@/utils/getImpactIcon";
-import Tooltip from "./Tooltip";
-import ReactMarkdown from "react-markdown";
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { getImpactIcon } from '@/utils/getImpactIcon';
+import Tooltip from './Tooltip';
+import ReactMarkdown from 'react-markdown';
 
 const categories = [
-  "ORGANIC",
-  "SUSTAINABLE",
-  "EDUCATES",
-  "SOCIAL",
-  "CLIMATE",
-  "EQUAL",
+  'ORGANIC',
+  'SUSTAINABLE',
+  'EDUCATES',
+  'SOCIAL',
+  'CLIMATE',
+  'EQUAL'
 ];
 
 const ImpactfulBusinesses = ({ dict, lang }) => {
@@ -33,15 +33,20 @@ const ImpactfulBusinesses = ({ dict, lang }) => {
                 <div className="text-6xl mb-4" style={{ color: icon.color }}>
                   <FontAwesomeIcon icon={icon.icon} size="lg" />
                 </div>
+                <p className="text-2xl" style={{ color: icon.color }}>
+                  {icon.text}
+                </p>
               </Tooltip>
             ) : (
-              <div className="text-6xl mb-4" style={{ color: icon.color }}>
-                <FontAwesomeIcon icon={icon.icon} size="lg" />
-              </div>
+              <>
+                <div className="text-6xl mb-4" style={{ color: icon.color }}>
+                  <FontAwesomeIcon icon={icon.icon} size="lg" />
+                </div>
+                <p className="text-2xl" style={{ color: icon.color }}>
+                  {icon.text}
+                </p>
+              </>
             )}
-            <p className="text-2xl" style={{ color: icon.color }}>
-              {icon.text}
-            </p>
           </div>
         ))}
       </div>

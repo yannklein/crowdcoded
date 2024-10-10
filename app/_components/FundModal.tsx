@@ -4,6 +4,7 @@ import { Modal } from './Modal';
 import DonationProgress from './DonationProgress';
 import { Funding } from './Funding';
 import { ProjectProps } from '../types';
+import { getProjectDonators } from '@/utils/getProjectDonators';
 
 type FundModalProps = {
   project: ProjectProps;
@@ -15,7 +16,7 @@ type FundModalProps = {
   dict: any;
 };
 
-const FundModal: React.FC<FundModalProps> = ({
+const FundModal: React.FC<FundModalProps> = async ({
   project,
   count,
   amount,
@@ -24,6 +25,8 @@ const FundModal: React.FC<FundModalProps> = ({
   triggerClassName,
   dict
 }) => {
+  const { id } = project;
+  const donators = await getProjectDonators(id);
   return (
     <Modal.Root
       triggerText={dict.projectDetails.fundingCard.fundThem}
@@ -42,6 +45,7 @@ const FundModal: React.FC<FundModalProps> = ({
           <Markdown className=" text-left ml-4">{mission}</Markdown>
         </div>
         <DonationProgress
+          donators={donators}
           amount={amount}
           count={count}
           goal={goal}

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ProjectProps } from '@/app/types';
 import DonationProgress from './DonationProgress';
 import { getDonationsPerProject } from '@/utils/getDonationsPerProject';
+import { getProjectDonators } from '@/utils/getProjectDonators';
 
 const Project: React.FC<{ project: ProjectProps; dict: any }> = async ({
   project,
@@ -12,7 +13,8 @@ const Project: React.FC<{ project: ProjectProps; dict: any }> = async ({
     project;
   const { owners } = projectTranslations[0];
   const { count, amount } = await getDonationsPerProject(project.id);
-
+  const donators = await getProjectDonators(id);
+  
   return (
     <Link
       className="block shadow-default bg-cream rounded"
@@ -32,6 +34,7 @@ const Project: React.FC<{ project: ProjectProps; dict: any }> = async ({
             {dict.projects.helpMessage2}
           </p>
           <DonationProgress
+            donators={donators}
             goal={goal}
             count={count}
             amount={amount}
