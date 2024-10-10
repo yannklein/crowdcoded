@@ -83,7 +83,7 @@ model Donation {
   name          String?
   email         String      
   amount        Int
-  showDonator   Boolean   @default(true)
+  showDonator   Boolean   @default(false)
   project       Project   @relation(fields: [projectId], references: [id])
   projectId     String
   @@map(name: "donations")
