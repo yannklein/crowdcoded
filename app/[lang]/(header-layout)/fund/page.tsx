@@ -1,42 +1,36 @@
-'use client';
 import React from 'react';
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
 
 // import CompletePayment from '@components/CompletePayment';
 import CheckoutStripe from '@components/CheckoutStripe';
-import { convertSubCurrency } from '@/lib/convertSubCurrency';
+import { getDictionary } from '@/app/[lang]/dictionaries';
+import ReactMarkdown from 'react-markdown';
 
-if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY == undefined) {
-  throw new Error('Stripe public key is not set');
-}
-
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
-
-export default function FundPage({
-  searchParams: { amount, id, title }
-}: {
-  searchParams: { amount: string, id: string, title: string };
-}) {
+const FundPage = async ({
+  searchParams: { amount, id, title },
+  params: { lang }
+}) => {
+  const dict = await getDictionary(lang);
+  
   const amountInt = parseInt(amount || '0');
   // console.log('The converted amount', convertSubCurrency(amountInt));
 
   return (
     <>
       <div>
-        <h1 className="text-4xl md:text-6xl text-center my-10">One step away from <em>(positive)</em> impact</h1>
+        <ReactMarkdown className="prose-strong:text-coralBlue prose-strong:font-normal lg:prose-h1:inline text-4xl lg:text-6xl text-center my-6 lg:my-10">
+          {dict.fund.title}
+        </ReactMarkdown>
       </div>
-      <Elements
-        stripe={stripePromise}
-        options={{
-          mode: 'payment',
-          amount: amountInt,
-          currency: 'jpy'
-        }}
-      >
-        <CheckoutStripe amount={amountInt} projectId={id} projectName={title} />
-        {/* <CompletePayment /> */}
-      </Elements>
+
+      <CheckoutStripe
+        dict={dict}
+        amount={amountInt}
+        projectId={id}
+        projectName={title}
+      />
+      {/* <CompletePayment /> */}
     </>
   );
-}
+};
+
+export default FundPage;
