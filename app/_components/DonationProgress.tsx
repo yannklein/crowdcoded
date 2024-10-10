@@ -14,7 +14,12 @@ const DonationProgress: React.FC<{
   const progressPct = Math.round((amount / goal) * 100);
   const classComputed =
     'relative rounded text-center font-heading text-xl bg-white w-full h-8';
-  const sponsorsSoFar = `Among others, the project has been supported by 🎉: **${donators.join(', ')}**`;
+  let sponsorsSoFar = "No sponsors yet, **be the first**!"; 
+  if (donators.length === 1) {
+    sponsorsSoFar = `With the special support of 🎉: **${donators[0]}**`;
+  } else if (donators.length > 1) {
+    sponsorsSoFar = `With the special support of 🎉: **${donators.slice(0,-2).join(', ')} and ${donators.at(-1)}**`;
+  }
 
   return (
     <div className="pb-2">
